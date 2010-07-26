@@ -21,7 +21,7 @@
 	document.addEventListener("touchmove", preventBehavior, false);
 	*/
 	
-	function onBodyLoad()
+	function getIndexLoad()
 	{
 		document.addEventListener("deviceready",onDeviceReady,false);
 	}
@@ -34,8 +34,25 @@
     
     </script>
   </head>
-  <body onload="onBodyLoad()">
-  	<div>The beginning of FindMyPitch from Mac....This is it. WhereDat.
+  <body onload="getIndexLoad()">
+  	<div id="container">
+		<div id="header">
+				<h2 id="logo">WhereDat</h2>
+		</div>
+		<ul id="nav">
+			
+		</ul>
 	</div>
+	<div id="content">
+				<div class="toolbar">
+					<h1>Search</h1>
+					<a id="backbutton" class="button back" href="#settings">&nbsp;</a>
+					<!--<a class="button flip" href="#settings">Settings</a>-->
+				</div>
+	</div>
+	<ul class="events" id="eventslist">
+		<li class="event"><a href="counties.html" id="countieslink">Counties</a></li>
+		<li class="event"><a href="search.html" id="searchlink">Search</a></li>
+	</ul>
   </body>
 </html>
