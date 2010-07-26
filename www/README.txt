@@ -11,4 +11,4 @@ No gain to be doing this work, get the database populated anywhich way....
 
 
 
-2. 
+2. Managed to Create the tables manually and INSERTed Galway, Clare and Limerick - just add a ; to the end of each line to Sqlite can run a load of INSERTS and commit them properly.
