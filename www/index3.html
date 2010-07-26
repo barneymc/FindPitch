@@ -1,0 +1,119 @@
+<html>
+<head>
+	<script type="text/javascript">
+	
+	function getSize(){
+		var beg=document.getElementById('start');
+		
+		var txtlength=beg.value.length;
+		var sizeInput=document.getElementById('size');
+		sizeInput.value=txtlength;
+	
+	}
+	
+	
+	function setRunSize()
+	{
+		var beg=document.getElementById('runsize');
+		var runl=beg.value;
+		
+		//Pass this length into the Splitter function
+		splitter(runl);
+	
+	
+	}
+	function splitter(runlength){
+		alert('Going');
+		var beg=document.getElementById('start');
+		var ta=document.getElementById('results');
+		var block=document.getElementById('block');
+		var tdrows=document.getElementById('rowss');
+		
+		var begContent=beg.value;
+		
+		var currentpos=0;
+		var startblock=0;
+		var endblock=0;
+		var strresults="";
+		var Lat="";
+		var Latx=""; var Laty="";
+		var currentblock="";
+		var latpos=0;
+		var srcpos=null
+		var srccontent="";
+		var clubnamepos=null;
+		var clubname="";
+		var strrow="";
+		var counter=1;
+		//var countyID=1;	//Clare
+		//var countyID=2;	//Galway
+		var countyID=3;		//Limnerick
+		var txtlength=0;
+		txtlength=begContent.length;
+		
+		alert(begContent.length);
+		//while (1==2)
+		while (currentpos < runlength)
+		
+		{
+			startblock=begContent.indexOf('var county_pts',currentpos);
+			endblock=begContent.indexOf('var county_pts',startblock+1) -1;
+			
+			currentblock=begContent.slice(startblock,endblock);
+			block.innerHTML=currentblock;
+			//alert(currentblock);
+			//--do work
+			srcpos=currentblock.indexOf('src=') + 7;
+			//srccontent="--" + currentblock.slice(srcpos-1,currentblock.indexOf('></td>')-4) + "--"; 
+			srccontent=currentblock.slice(srcpos-1,currentblock.indexOf('></td>')-4); 
+			
+			clubnamepos=currentblock.indexOf('_blank')+7;
+			clubname=currentblock.slice(clubnamepos+1,currentblock.indexOf('</a></td>'));
+			
+			latpos=currentblock.indexOf('GLatLng');
+			Lat=currentblock.slice(latpos+7,latpos+26);
+			Latx=(Lat.slice(1,Lat.length-1)).split(",")[0];
+			Laty=(Lat.slice(1,Lat.length-1)).split(",")[1];
+			//alert(Latx);
+			
+			//alert('Lat is ' + Lat) ;
+			//alert('Clubame is ' + clubname);
+			strresults=strresults+'Club : ' + clubname + '  Lat  ' + Lat + "--" + ' ImageFile ' + srccontent + '--' + '<BR>' ;
+				
+			currentpos=endblock+50;
+			//strr="<TR><TD>" + counter + "</TD><TD>" + clubname + "</TD><TD>" + Lat + "</TD><TD>" + srccontent + "</TD></TR>";
+			strr=" insert into location ([Name],[LatX],[LatY],[CountyID],[Crest]) values (" + "'" + clubname + "'" + ',' +Latx + ',' +Laty + ',' + countyID + ',' + "'" + srccontent + "'" + ")";
+			//strtest="test" + "2"; alert(strtest);
+			//alert(strr);
+			tdrows.innerHTML=tdrows.innerHTML+"<TR><TD>" + strr + "</TD></TR>";
+			counter=counter+1;
+		}
+		//alert(begContent);
+		//var begContent='This_is_one';
+		//Step thru begContent spitting out the Long,Lat
+		
+		//var splitbeg=begContent.split('GLatLng');
+		ta.innerHTML= strresults;
+		alert('Found ' + counter + ' club details.');
+	}
+	</script>
+</head>
+<body>
+	<div>
+		<input type="button" id="btnGo" value="Convert" onclick="splitter();"/>
+	</div>
+	<div>
+		<textarea  id="start" name="start" rows="10" cols="100" value="hhh"></TEXTAREA>
+	</div>
+	<div>
+		<textarea id="results" name="results" rows="10" cols="65" value="nnn"></TEXTAREA>
+	</div>
+	<div>
+		<textarea id="block" name="block" rows="10" cols="100" value="nnn"></TEXTAREA>
+	</div>
+	<div><input type="text" id="size" value="0"><input type="button" value="Size" onclick="getSize()"</div>
+	<div><input type="text" id="runsize" value="0"><input type="button" value="btnSize" onclick="setRunSize()"</div>
+	<div><table id="rowss"></table>
+	</div>
+</body>
+</html>

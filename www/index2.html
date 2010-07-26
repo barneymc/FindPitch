@@ -1,0 +1,1041 @@
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<!-- CSS for Region Link -->
+<link rel="stylesheet" href="http://www.gaainfo.com/tabs_css.css" type="text/css">
+<!-- CSS for Club listings -->
+<style>
+.lists th {
+  text-align: left;
+  padding: 5px 10px;
+  background: #005000; // Removed: #6d84b4;
+}
+.lists .spacer {
+  background: none;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  width: 10px;
+}
+.lists th h4 {
+  float: left;
+  color: white;
+}
+.lists th a {
+  float: right;
+  font-weight: normal;
+  color: #D8EADA; // Replaced: d9dfea
+}
+.lists th a:hover {
+  color: white;
+}
+.lists td {
+  margin: 0px 10px;
+  padding: 0px;
+  vertical-align: top;
+  width: 190px;
+}
+.listdouble td {
+  margin: 0px 10px;
+  padding: 0px;
+  vertical-align: top;
+  width: 285px;
+}
+.lists .list {
+  border-left:1px solid #BBBBBB; border-right:1px solid #BBBBBB; border-top:medium none -moz-use-text-color; border-bottom:medium none -moz-use-text-color; background:white; 
+}
+.lists .list2 {
+  border-left:1px solid #BBBBBB; border-right:1px solid #BBBBBB; border-top:medium none -moz-use-text-color; border-bottom:medium none -moz-use-text-color; background:white; 
+}
+.lists .list .list_item {
+  border-top: 1px solid #E5E5E5;
+  padding: 10px;
+}
+.lists .list .list_item .first {
+  border-top: none;
+}
+.lists .list2 .list_item {
+  border-top: 1px solid #E5E5E5;
+  padding: 10px;
+}
+.lists .list2 .list_item .first {
+  border-top: none;
+}
+.lists .see_all {
+  border-left:1px solid #BBBBBB; border-right:1px solid #BBBBBB; border-top:medium none -moz-use-text-color; border-bottom:1px solid rgb(187,187,187); background:white; text-align: left
+}
+.lists .see_all div {
+  border-top: 1px solid #E5E5E5;
+  padding: 5px 10px;
+}
+
+.navlink, .navlink:hover{color:#FFFFFF;font-weight:bold;}
+.navOn{background-color:#999999;border-bottom:1px solid #999999;height:33px;vertical-align:middle;text-align:center;}
+.navOff{background:#005000 url(http://m.gaainfo.com/images/greenbar.png) repeat-x;height:33px;vertical-align:middle;text-align:center;} 
+
+.navSecondaryOn{background-color:#999999;border-bottom:1px solid #999999;height:33px;vertical-align:middle;text-align:center;}
+.navSecondaryOff{background:#ff0000 url(http://m.gaainfo.com/images/redbar.png) repeat-x;height:33px;vertical-align:middle;text-align:center;} 
+</style><style type="text/css">
+
+#dropmenudiv{
+position:absolute;
+border:1px solid black;
+border-bottom-width: 0;
+font:normal 10px Arial;
+line-height:16px;
+z-index:100;
+}
+
+#dropmenudiv a{
+width: 100%;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid black;
+padding: 1px 0;
+text-decoration: none;
+font:normal 10px Arial;
+font-weight: bold;
+}
+
+#dropmenudiv a:hover{ /*hover background color*/
+background-color: yellow;
+}
+
+</style>
+
+<script type="text/javascript">
+
+/***********************************************
+* AnyLink Drop Down Menu- © Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+//Menu with the irish counties:
+var countyAK_menu=new Array()
+countyAK_menu[0]='<a href="/antrim.php">Antrim</a>' 
+countyAK_menu[1]='<a href="/armagh.php">Armagh</a>' 
+countyAK_menu[2]='<a href="/carlow.php">Carlow</a>' 
+countyAK_menu[3]='<a href="/cavan.php">Cavan</a>' 
+countyAK_menu[4]='<a href="/clare.php">Clare</a>' 
+countyAK_menu[5]='<a href="/cork.php">Cork</a>' 
+countyAK_menu[6]='<a href="/derry.php">Derry</a>' 
+countyAK_menu[7]='<a href="/donegal.php">Donegal</a>' 
+countyAK_menu[8]='<a href="/down.php">Down</a>' 
+countyAK_menu[9]='<a href="/dublin.php">Dublin</a>' 
+countyAK_menu[10]='<a href="/fermanagh.php">Fermanagh</a>' 
+countyAK_menu[11]='<a href="/galway.php">Galway</a>' 
+countyAK_menu[12]='<a href="/kerry.php">Kerry</a>' 
+countyAK_menu[13]='<a href="/kildare.php">Kildare</a>' 
+countyAK_menu[14]='<a href="/kilkenny.php">Kilkenny</a>' 
+
+var schools_menu=new Array()
+schools_menu[0]='<a href="/connachtschools.php">Connacht Schools</a>' 
+schools_menu[1]='<a href="/leinsterschools.php">Leinster Schools</a>' 
+schools_menu[2]='<a href="/munsterschools.php">Munster Schools</a>' 
+schools_menu[3]='<a href="/ulsterschools.php">Ulster Schools</a>' 
+
+var countyLZ_menu=new Array()
+countyLZ_menu[0]='<a href="/laois.php">Laois</a>' 
+countyLZ_menu[1]='<a href="/leitrim.php">Leitrim</a>' 
+countyLZ_menu[2]='<a href="/limerick.php">Limerick</a>' 
+countyLZ_menu[3]='<a href="/longford.php">Longford</a>' 
+countyLZ_menu[4]='<a href="/louth.php">Louth</a>' 
+countyLZ_menu[5]='<a href="/mayo.php">Mayo</a>' 
+countyLZ_menu[6]='<a href="/meath.php">Meath</a>' 
+countyLZ_menu[7]='<a href="/monaghan.php">Monaghan</a>' 
+countyLZ_menu[8]='<a href="/offaly.php">Offaly</a>' 
+countyLZ_menu[9]='<a href="/roscommon.php">Roscommon</a>' 
+countyLZ_menu[10]='<a href="/sligo.php">Sligo</a>' 
+countyLZ_menu[11]='<a href="/tipperary.php">Tipperary</a>' 
+countyLZ_menu[12]='<a href="/tyrone.php">Tyrone</a>' 
+countyLZ_menu[13]='<a href="/waterford.php">Waterford</a>' 
+countyLZ_menu[14]='<a href="/westmeath.php">Westmeath</a>' 
+countyLZ_menu[15]='<a href="/wexford.php">Wexford</a>' 
+countyLZ_menu[16]='<a href="/wicklow.php">Wicklow</a>' 
+
+var britain_menu=new Array()
+britain_menu[0]='<a href="/britain.php">British Counties</a>' 
+britain_menu[0+1]='<a href="/britishunis.php">British Universities</a>' 
+britain_menu[1+1]='<a href="/gloucestershire.php">Gloucestershire</a>' 
+britain_menu[2+1]='<a href="/hertfordshire.php">Hertfordshire</a>' 
+britain_menu[3+1]='<a href="/lancashire.php">Lancashire</a>' 
+britain_menu[4+1]='<a href="/london.php">London</a>' 
+britain_menu[5+1]='<a href="/scotland.php">Scotland</a>' 
+britain_menu[6+1]='<a href="/warwickshire.php">Warwickshire</a>' 
+britain_menu[7+1]='<a href="/yorkshire.php">Yorkshire</a>' 
+
+var canada_menu=new Array()
+canada_menu[0]='<a href="/northamerica.php">North America</a>' 
+canada_menu[0+1]='<a href="/toronto.php">Toronto</a>' 
+canada_menu[1+1]='<a href="/westerncanada.php">Western Canada</a>' 
+
+var usa_menu=new Array()
+usa_menu[0]='<a href="/northamerica.php">North America</a>' 
+usa_menu[0+1]='<a href="/boston.php">Boston</a>' 
+usa_menu[1+1]='<a href="/chicago.php">Chicago & Central</a>' 
+usa_menu[2+1]='<a href="/midwusa.php">Midwestern USA</a>' 
+usa_menu[3+1]='<a href="/newyork.php">New York</a>' 
+usa_menu[4+1]='<a href="/nwusa.php">Northwestern USA</a>' 
+usa_menu[5+1]='<a href="/philadelphia.php">Philadelphia</a>' 
+usa_menu[6+1]='<a href="/sanfrancisco.php">San Francisco</a>' 
+usa_menu[7+1]='<a href="/seusa.php">Southeastern USA</a>' 
+usa_menu[8+1]='<a href="/swusa.php">Southwestern USA</a>' 
+
+var interfirms_menu=new Array()
+interfirms_menu[0]='<a href="/connachtfirms.php">Connacht Firms</a>' 
+interfirms_menu[1]='<a href="/leinsterfirms.php">Leinster Firms</a>' 
+interfirms_menu[2]='<a href="/munsterfirms.php">Munster Firms</a>' 
+interfirms_menu[3]='<a href="/ulsterfirms.php">Ulster Firms</a>' 
+
+var australasia_menu=new Array()
+australasia_menu[0]='<a href="/australasia.php">Australasia</a>' 
+australasia_menu[0+1]='<a href="/newsouthwales.php">New South Wales</a>' 
+australasia_menu[1+1]='<a href="/newzealand.php">New Zealand</a>' 
+australasia_menu[2+1]='<a href="/queensland.php">Queensland</a>' 
+australasia_menu[3+1]='<a href="/southaustralia.php">South Australia</a>' 
+australasia_menu[4+1]='<a href="/victoria.php">Victoria</a>' 
+australasia_menu[5+1]='<a href="/westernaustralia.php">Western Australia</a>' 
+
+
+//Menu with the Current Football IC competitions:
+var icfootball_menu=new Array()
+icfootball_menu[0]="<a href='/comp.php?co=intercounty&year=2010&comp=sfc'>All-Ireland SFC</a>" 
+icfootball_menu[1]="<a href='/comp.php?co=intercounty&year=2010&comp=sfcqualifier'>Football Qualifiers</a>" 
+icfootball_menu[2]="<a href='/comp.php?co=intercounty&year=2010&comp=csfc'>Connacht SFC</a>" 
+icfootball_menu[3]="<a href='/comp.php?co=intercounty&year=2010&comp=lsfc'>Leinster SFC</a>" 
+icfootball_menu[4]="<a href='/comp.php?co=intercounty&year=2010&comp=msfc'>Munster SFC</a>" 
+icfootball_menu[5]="<a href='/comp.php?co=intercounty&year=2010&comp=usfc'>Ulster SFC</a>" 
+icfootball_menu[6]="<a href='/comp.php?co=intercounty&year=2010&comp=tommymurphycup'>Tommy Murphy Cup</a>" 
+icfootball_menu[7]="<a href='/comp.php?co=intercounty&year=2010&comp=nfldiv1'>NFL, Div 1</a>" 
+icfootball_menu[8]="<a href='/comp.php?co=intercounty&year=2010&comp=nfldiv2'>NFL, Div 2</a>" 
+icfootball_menu[9]="<a href='/comp.php?co=intercounty&year=2010&comp=nfldiv3'>NFL, Div 3</a>" 
+icfootball_menu[10]="<a href='/comp.php?co=intercounty&year=2010&comp=nfldiv4'>NFL, Div 4</a>" 
+icfootball_menu[11]="<a href='/comp.php?co=intercounty&year=2010&comp=obyrnecup'>O'Byrne Cup</a>" 
+icfootball_menu[12]="<a href='/comp.php?co=intercounty&year=2010&comp=drmckennacup'>Dr. McKenna Cup</a>" 
+icfootball_menu[13]="<a href='/comp.php?co=intercounty&year=2010&comp=connachtfbdleague'>Conn. FBD League</a>" 
+icfootball_menu[14]="<a href='/comp.php?co=intercounty&year=2010&comp=mcgrathcup'>McGrath Cup</a>" 
+
+var ichurling_menu=new Array()
+ichurling_menu[0]="<a href='/comp.php?co=intercounty&year=2010&comp=shc'>All-Ireland SHC</a>" 
+ichurling_menu[1]="<a href='/comp.php?co=intercounty&year=2010&comp=shcqualifier'>Hurling Qualifiers</a>" 
+ichurling_menu[2]="<a href='/comp.php?co=intercounty&year=2010&comp=cshc'>Connacht SHC</a>" 
+ichurling_menu[3]="<a href='/comp.php?co=intercounty&year=2010&comp=lshc'>Leinster SHC</a>" 
+ichurling_menu[4]="<a href='/comp.php?co=intercounty&year=2010&comp=mshc'>Munster SHC</a>" 
+ichurling_menu[5]="<a href='/comp.php?co=intercounty&year=2010&comp=ushc'>Ulster SHC</a>" 
+ichurling_menu[6]="<a href='/comp.php?co=intercounty&year=2010&comp=christyringcup'>Christy Ring Cup</a>" 
+ichurling_menu[7]="<a href='/comp.php?co=intercounty&year=2010&comp=nickyrackardcup'>Nicky Rackard Cup</a>" 
+ichurling_menu[8]="<a href='/comp.php?co=intercounty&year=2010&comp=meaghercup'>Meagher Cup</a>" 
+ichurling_menu[9]="<a href='/comp.php?co=intercounty&year=2010&comp=nhldiv1'>NHL, Div 1</a>" 
+ichurling_menu[10]="<a href='/comp.php?co=intercounty&year=2010&comp=nhldiv2'>NHL, Div 2</a>" 
+ichurling_menu[11]="<a href='/comp.php?co=intercounty&year=2010&comp=nhldiv3'>NHL, Div 3</a>" 
+ichurling_menu[12]="<a href='/comp.php?co=intercounty&year=2010&comp=nhldiv4'>NHL, Div 4</a>" 
+ichurling_menu[13]="<a href='/comp.php?co=intercounty&year=2010&comp=walshcup'>Walsh Cup</a>" 
+ichurling_menu[14]="<a href='/comp.php?co=intercounty&year=2010&comp=kehoecup'>Kehoe Cup</a>" 
+ichurling_menu[15]="<a href='/comp.php?co=intercounty&year=2010&comp=waterfordcrystal'>Waterford Crystal Cup</a>" 
+ichurling_menu[16]="<a href='/comp.php?co=intercounty&year=2010&comp=connachthurlingleague'>Conn. Hurling League</a>" 
+
+//Menu with the Defunct or very minor IC competitions: [ NEW VERSION]
+var icother_menu=new Array()
+icother_menu[0]='<a href="/comp.php?co=intercounty&comp=jhc">JHC</a>' 
+icother_menu[1]='<a href="/comp.php?co=intercounty&comp=jfc">JFC</a>' 
+icother_menu[2]='<a href="/comp.php?co=intercounty&comp=cjhc">Connacht JHC</a>' 
+icother_menu[3]='<a href="/comp.php?co=intercounty&comp=ljhc">Leinster JHC</a>' 
+icother_menu[4]='<a href="/comp.php?co=intercounty&comp=mjhc">Munster JHC</a>' 
+icother_menu[5]='<a href="/comp.php?co=intercounty&comp=ujhc">Ulster JHC</a>' 
+icother_menu[6]='<a href="/comp.php?co=intercounty&comp=cjfc">Connacht JFC</a>' 
+icother_menu[7]='<a href="/comp.php?co=intercounty&comp=ljfc">Leinster JFC</a>' 
+icother_menu[8]='<a href="/comp.php?co=intercounty&comp=mjfc">Munster JFC</a>' 
+icother_menu[9]='<a href="/comp.php?co=intercounty&comp=ujfc">Ulster JFC</a>' 
+icother_menu[10]='<a href="/comp.php?co=intercounty&comp=shcb">SHC B</a>' 
+icother_menu[11]='<a href="/comp.php?co=intercounty&comp=shcc">SHC C</a>' 
+icother_menu[12]='<a href="/comp.php?co=intercounty&comp=sfcb">SFC B</a>' 
+icother_menu[13]='<a href="/comp.php?co=intercounty&comp=ihc">IHC</a>' 
+icother_menu[14]='<a href="/comp.php?co=intercounty&comp=cihc">Connacht IHC</a>' 
+icother_menu[15]='<a href="/comp.php?co=intercounty&comp=lihc">Leinster IHC</a>' 
+icother_menu[16]='<a href="/comp.php?co=intercounty&comp=mihc">Munster IHC</a>' 
+icother_menu[17]='<a href="/comp.php?co=intercounty&comp=uihc">Ulster IHC</a>' 
+icother_menu[18]='<a href="/comp.php?co=intercounty&comp=oireachtastournament">Oireachtas</a>' 
+icother_menu[19]='<a href="/comp.php?co=intercounty&comp=thomondfeiscup">Thomond Cup</a>' 
+icother_menu[20]='<a href="/comp.php?co=intercounty&comp=crokecuphurling">Croke Cup [H]</a>' 
+icother_menu[21]='<a href="/comp.php?co=intercounty&comp=drlagancup">Lagan Cup</a>' 
+icother_menu[22]='<a href="/comp.php?co=intercounty&comp=railwayshieldfootball">Railway Sld [F]</a>' 
+icother_menu[23]='<a href="/comp.php?co=intercounty&comp=groundscup">Grounds Cup</a>' 
+icother_menu[24]='<a href="/comp.php?co=intercounty&comp=crokecupfootball">Croke Cup [F]</a>' 
+icother_menu[25]='<a href="/comp.php?co=intercounty&comp=railwayshieldhurling">Railway Sld [H]</a>' 
+icother_menu[26]='<a href="/comp.php?co=intercounty&comp=gaellinncup">Gael Linn Cup</a>' 
+icother_menu[27]='<a href="/comp.php?co=intercounty&comp=hurlingchallenge">Challenge (H)</a>' 
+icother_menu[28]='<a href="/comp.php?co=intercounty&comp=footballchallenge">Challenge (F)</a>' 
+icother_menu[29]='<a href="/comp.php?co=intercounty&comp=centenarycuphurling">Centenary Cup (H)</a>' 
+icother_menu[30]='<a href="/comp.php?co=intercounty&comp=centenarycupfootball">Centenary Cup (F)</a>' 
+
+<!-- This will add a division menu-->
+var division_menu=new Array()
+division_menu[0]="<a href='/galway/westgalway.php'>West Galway</a>" 
+division_menu[1]="<a href='/galway/northeastgalway.php'>North East Galway</a>" 
+
+var westgalway_menu=new Array()
+westgalway_menu[0]="<a href='/galway/ballindereen.php'>Ballindereen</a>" 
+westgalway_menu[1]="<a href='/galway/barna.php'>Barna [G]</a>" 
+westgalway_menu[2]="<a href='/galway/barnafurbo.php'>Barna/Furbo</a>" 
+westgalway_menu[3]="<a href='/galway/carnacashel.php'>Carna-Cashel</a>" 
+westgalway_menu[4]="<a href='/galway/carraroe.php'>Carraroe</a>" 
+westgalway_menu[5]="<a href='/galway/clifden.php'>Clifden</a>" 
+westgalway_menu[6]="<a href='/galway/killanin.php'>Killanin</a>" 
+westgalway_menu[7]="<a href='/galway/kinvara.php'>Kinvara</a>" 
+westgalway_menu[8]="<a href='/galway/liammellows.php'>Liam Mellows</a>" 
+westgalway_menu[9]="<a href='/galway/michealbreathnach.php'>Micheal Breathnach</a>" 
+westgalway_menu[10]="<a href='/galway/moycullen.php'>Moycullen</a>" 
+westgalway_menu[11]="<a href='/galway/naomhanna.php'>Naomh Anna</a>" 
+westgalway_menu[12]="<a href='/galway/oileainarann.php'>Oileain Arann</a>" 
+westgalway_menu[13]="<a href='/galway/oranmoremaree.php'>Oranmore-Maree</a>" 
+westgalway_menu[14]="<a href='/galway/oughterard.php'>Oughterard</a>" 
+westgalway_menu[15]="<a href='/galway/padraicmacpiarais.php'>Padraic Mac Piarais</a>" 
+westgalway_menu[16]="<a href='/galway/pearses.php'>Pearses</a>" 
+westgalway_menu[17]="<a href='/galway/rahoonnewcastle.php'>Rahoon-Newcastle</a>" 
+westgalway_menu[18]="<a href='/galway/renvyle.php'>Renvyle</a>" 
+westgalway_menu[19]="<a href='/galway/salthillknocknacarra.php'>Salthill-Knocknacarra</a>" 
+westgalway_menu[20]="<a href='/galway/spiddal.php'>Spiddal</a>" 
+westgalway_menu[21]="<a href='/galway/stcolmans.php'>St. Colman's</a>" 
+westgalway_menu[22]="<a href='/galway/stjames.php'>St. James'</a>" 
+westgalway_menu[23]="<a href='/galway/stmichaels.php'>St. Michael's</a>" 
+westgalway_menu[24]="<a href='/galway/stpatricksclonbur.php'>St. Patrick's, Clonbur</a>" 
+
+var northeastgalway_menu=new Array()
+northeastgalway_menu[0]="<a href='/galway/abbeyknockmoy.php'>Abbeyknockmoy</a>" 
+northeastgalway_menu[1]="<a href='/galway/ahascraghfohenagh.php'>Ahascragh-Fohenagh</a>" 
+northeastgalway_menu[2]="<a href='/galway/annaghdown.php'>Annaghdown</a>" 
+northeastgalway_menu[3]="<a href='/galway/ardrahan.php'>Ardrahan</a>" 
+northeastgalway_menu[4]="<a href='/galway/ballygar.php'>Ballygar</a>" 
+northeastgalway_menu[5]="<a href='/galway/beagh.php'>Beagh</a>" 
+northeastgalway_menu[6]="<a href='/galway/caherlistrane.php'>Caherlistrane</a>" 
+northeastgalway_menu[7]="<a href='/galway/caltra.php'>Caltra</a>" 
+northeastgalway_menu[8]="<a href='/galway/cappataggle.php'>Cappataggle</a>" 
+northeastgalway_menu[9]="<a href='/galway/carnmore.php'>Carnmore</a>" 
+northeastgalway_menu[10]="<a href='/galway/castlegar.php'>Castlegar</a>" 
+northeastgalway_menu[11]="<a href='/galway/claregalway.php'>Claregalway</a>" 
+northeastgalway_menu[12]="<a href='/galway/clarinbridge.php'>Clarinbridge</a>" 
+northeastgalway_menu[13]="<a href='/galway/corofin.php'>Corofin</a>" 
+northeastgalway_menu[14]="<a href='/galway/cortoonshamrocks.php'>Cortoon Shamrocks</a>" 
+northeastgalway_menu[15]="<a href='/galway/craughwell.php'>Craughwell</a>" 
+northeastgalway_menu[16]="<a href='/galway/dunmoremchales.php'>Dunmore McHales</a>" 
+northeastgalway_menu[17]="<a href='/galway/eireog.php'>Eire Og</a>" 
+northeastgalway_menu[18]="<a href='/galway/fathergriffins.php'>Father Griffins</a>" 
+northeastgalway_menu[19]="<a href='/galway/fathergriffinseireog.php'>Father Griffins/Éire Óg</a>" 
+northeastgalway_menu[20]="<a href='/galway/glenamaddy.php'>Glenamaddy</a>" 
+northeastgalway_menu[21]="<a href='/galway/glinsk.php'>Glinsk</a>" 
+northeastgalway_menu[22]="<a href='/galway/gort.php'>Gort</a>" 
+northeastgalway_menu[23]="<a href='/galway/headford.php'>Headford</a>" 
+northeastgalway_menu[24]="<a href='/galway/kilbeacanty.php'>Kilbeacanty</a>" 
+northeastgalway_menu[25]="<a href='/galway/kilconieron.php'>Kilconieron</a>" 
+northeastgalway_menu[26]="<a href='/galway/kilconly.php'>Kilconly</a>" 
+northeastgalway_menu[27]="<a href='/galway/kilkerrinclonberne.php'>Kilkerrin-Clonberne</a>" 
+northeastgalway_menu[28]="<a href='/galway/killererin.php'>Killererin</a>" 
+northeastgalway_menu[29]="<a href='/galway/killimor.php'>Killimor [G]</a>" 
+northeastgalway_menu[30]="<a href='/galway/killimordaly.php'>Killimordaly</a>" 
+northeastgalway_menu[31]="<a href='/galway/kilnadeemaleitrim.php'>Kilnadeema-Leitrim</a>" 
+northeastgalway_menu[32]="<a href='/galway/kiltormer.php'>Kiltormer</a>" 
+northeastgalway_menu[33]="<a href='/galway/meelickeyrecourt.php'>Meelick-Eyrecourt</a>" 
+northeastgalway_menu[34]="<a href='/galway/menloemmets.php'>Menlo Emmets</a>" 
+northeastgalway_menu[35]="<a href='/galway/menlough.php'>Menlough</a>" 
+northeastgalway_menu[36]="<a href='/galway/milltown.php'>Milltown</a>" 
+northeastgalway_menu[37]="<a href='/galway/moniveaabbeyknockmoy.php'>Monivea-Abbeyknockmoy</a>" 
+northeastgalway_menu[38]="<a href='/galway/mountbellewmoylough.php'>Mountbellew-Moylough</a>" 
+northeastgalway_menu[39]="<a href='/galway/mullagh.php'>Mullagh</a>" 
+northeastgalway_menu[40]="<a href='/galway/naomhcolumba.php'>Naomh Columba</a>" 
+northeastgalway_menu[41]="<a href='/galway/portumna.php'>Portumna</a>" 
+northeastgalway_menu[42]="<a href='/galway/sarsfields.php'>Sarsfields</a>" 
+northeastgalway_menu[43]="<a href='/galway/skehana.php'>Skehana</a>" 
+northeastgalway_menu[44]="<a href='/galway/stbrendansloughrea.php'>St. Brendan's, Loughrea</a>" 
+northeastgalway_menu[45]="<a href='/galway/stgabrielskilconnell.php'>St. Gabriel's, Kilconnell</a>" 
+northeastgalway_menu[46]="<a href='/galway/ballinasloe.php'>St. Grellan's, Ballinasloe</a>" 
+northeastgalway_menu[47]="<a href='/galway/stkerills.php'>St. Kerill's</a>" 
+northeastgalway_menu[48]="<a href='/galway/stmarysathenry.php'>St. Mary's, Athenry</a>" 
+northeastgalway_menu[49]="<a href='/galway/stthomas.php'>St. Thomas'</a>" 
+northeastgalway_menu[50]="<a href='/galway/sylane.php'>Sylane</a>" 
+northeastgalway_menu[51]="<a href='/galway/tommylarkins.php'>Tommy Larkins</a>" 
+northeastgalway_menu[52]="<a href='/galway/tuamstars.php'>Tuam Stars</a>" 
+northeastgalway_menu[53]="<a href='/galway/turloughmore.php'>Turloughmore</a>" 
+northeastgalway_menu[54]="<a href='/galway/tynaghabbeyduniry.php'>Tynagh Abbey Duniry</a>" 
+northeastgalway_menu[55]="<a href='/galway/williamstown.php'>Williamstown</a>" 
+
+<!-- This will add a hurling club menu-->
+
+var hurling_menu=new Array()
+hurling_menu[0]="<a href='/galway/abbeyknockmoy.php'>Abbeyknockmoy</a>" 
+hurling_menu[1]="<a href='/galway/ahascraghfohenagh.php'>Ahascragh-Fohenagh</a>" 
+hurling_menu[2]="<a href='/galway/annaghdown.php'>Annaghdown</a>" 
+hurling_menu[3]="<a href='/galway/ardrahan.php'>Ardrahan</a>" 
+hurling_menu[4]="<a href='/galway/ballindereen.php'>Ballindereen</a>" 
+hurling_menu[5]="<a href='/galway/ballygar.php'>Ballygar</a>" 
+hurling_menu[6]="<a href='/galway/barnafurbo.php'>Barna/Furbo</a>" 
+hurling_menu[7]="<a href='/galway/beagh.php'>Beagh</a>" 
+hurling_menu[8]="<a href='/galway/cappataggle.php'>Cappataggle</a>" 
+hurling_menu[9]="<a href='/galway/carnmore.php'>Carnmore</a>" 
+hurling_menu[10]="<a href='/galway/castlegar.php'>Castlegar</a>" 
+hurling_menu[11]="<a href='/galway/clarinbridge.php'>Clarinbridge</a>" 
+hurling_menu[12]="<a href='/galway/craughwell.php'>Craughwell</a>" 
+hurling_menu[13]="<a href='/galway/galwaydevelopment.php'>Galway Development</a>" 
+hurling_menu[14]="<a href='/galway/gort.php'>Gort</a>" 
+hurling_menu[15]="<a href='/galway/kilbeacanty.php'>Kilbeacanty</a>" 
+hurling_menu[16]="<a href='/galway/kilconieron.php'>Kilconieron</a>" 
+hurling_menu[17]="<a href='/galway/killimor.php'>Killimor [G]</a>" 
+hurling_menu[18]="<a href='/galway/killimordaly.php'>Killimordaly</a>" 
+hurling_menu[19]="<a href='/galway/kilnadeemaleitrim.php'>Kilnadeema-Leitrim</a>" 
+hurling_menu[20]="<a href='/galway/kiltormer.php'>Kiltormer</a>" 
+hurling_menu[21]="<a href='/galway/kinvara.php'>Kinvara</a>" 
+hurling_menu[22]="<a href='/galway/liammellows.php'>Liam Mellows</a>" 
+hurling_menu[23]="<a href='/galway/meelickeyrecourt.php'>Meelick-Eyrecourt</a>" 
+hurling_menu[24]="<a href='/galway/menloemmets.php'>Menlo Emmets</a>" 
+hurling_menu[25]="<a href='/galway/michealbreathnach.php'>Micheal Breathnach</a>" 
+hurling_menu[26]="<a href='/galway/mountbellewmoylough.php'>Mountbellew-Moylough</a>" 
+hurling_menu[27]="<a href='/galway/moycullen.php'>Moycullen</a>" 
+hurling_menu[28]="<a href='/galway/mullagh.php'>Mullagh</a>" 
+hurling_menu[29]="<a href='/galway/naomhcolumba.php'>Naomh Columba</a>" 
+hurling_menu[30]="<a href='/galway/oranmoremaree.php'>Oranmore-Maree</a>" 
+hurling_menu[31]="<a href='/galway/pearses.php'>Pearses</a>" 
+hurling_menu[32]="<a href='/galway/portumna.php'>Portumna</a>" 
+hurling_menu[33]="<a href='/galway/rahoonnewcastle.php'>Rahoon-Newcastle</a>" 
+hurling_menu[34]="<a href='/galway/salthillknocknacarra.php'>Salthill-Knocknacarra</a>" 
+hurling_menu[35]="<a href='/galway/sarsfields.php'>Sarsfields</a>" 
+hurling_menu[36]="<a href='/galway/skehana.php'>Skehana</a>" 
+hurling_menu[37]="<a href='/galway/spiddal.php'>Spiddal</a>" 
+hurling_menu[38]="<a href='/galway/stbrendansloughrea.php'>St. Brendan's, Loughrea</a>" 
+hurling_menu[39]="<a href='/galway/stmarysathenry.php'>St. Mary's, Athenry</a>" 
+hurling_menu[40]="<a href='/galway/stthomas.php'>St. Thomas'</a>" 
+hurling_menu[41]="<a href='/galway/sylane.php'>Sylane</a>" 
+hurling_menu[42]="<a href='/galway/tommylarkins.php'>Tommy Larkins</a>" 
+hurling_menu[43]="<a href='/galway/tuamstars.php'>Tuam Stars</a>" 
+hurling_menu[44]="<a href='/galway/turloughmore.php'>Turloughmore</a>" 
+hurling_menu[45]="<a href='/galway/tynaghabbeyduniry.php'>Tynagh Abbey Duniry</a>" 
+
+<!-- This will add a men's football club menu-->
+
+var football_menu=new Array()
+football_menu[0]="<a href='/galway/annaghdown.php'>Annaghdown</a>" 
+football_menu[1]="<a href='/galway/ballindereen.php'>Ballindereen</a>" 
+football_menu[2]="<a href='/galway/barna.php'>Barna [G]</a>" 
+football_menu[3]="<a href='/galway/caherlistrane.php'>Caherlistrane</a>" 
+football_menu[4]="<a href='/galway/caltra.php'>Caltra</a>" 
+football_menu[5]="<a href='/galway/carnacashel.php'>Carna-Cashel</a>" 
+football_menu[6]="<a href='/galway/carraroe.php'>Carraroe</a>" 
+football_menu[7]="<a href='/galway/claregalway.php'>Claregalway</a>" 
+football_menu[8]="<a href='/galway/clifden.php'>Clifden</a>" 
+football_menu[9]="<a href='/galway/corofin.php'>Corofin</a>" 
+football_menu[10]="<a href='/galway/cortoonshamrocks.php'>Cortoon Shamrocks</a>" 
+football_menu[11]="<a href='/galway/dunmoremchales.php'>Dunmore McHales</a>" 
+football_menu[12]="<a href='/galway/fathergriffinseireog.php'>Father Griffins/Éire Óg</a>" 
+football_menu[13]="<a href='/galway/glenamaddy.php'>Glenamaddy</a>" 
+football_menu[14]="<a href='/galway/glinsk.php'>Glinsk</a>" 
+football_menu[15]="<a href='/galway/headford.php'>Headford</a>" 
+football_menu[16]="<a href='/galway/kilconly.php'>Kilconly</a>" 
+football_menu[17]="<a href='/galway/kilkerrinclonberne.php'>Kilkerrin-Clonberne</a>" 
+football_menu[18]="<a href='/galway/killanin.php'>Killanin</a>" 
+football_menu[19]="<a href='/galway/killererin.php'>Killererin</a>" 
+football_menu[20]="<a href='/galway/kiltormer.php'>Kiltormer</a>" 
+football_menu[21]="<a href='/galway/kinvara.php'>Kinvara</a>" 
+football_menu[22]="<a href='/galway/menlough.php'>Menlough</a>" 
+football_menu[23]="<a href='/galway/michealbreathnach.php'>Micheal Breathnach</a>" 
+football_menu[24]="<a href='/galway/milltown.php'>Milltown</a>" 
+football_menu[25]="<a href='/galway/moniveaabbeyknockmoy.php'>Monivea-Abbeyknockmoy</a>" 
+football_menu[26]="<a href='/galway/mountbellewmoylough.php'>Mountbellew-Moylough</a>" 
+football_menu[27]="<a href='/galway/moycullen.php'>Moycullen</a>" 
+football_menu[28]="<a href='/galway/mullagh.php'>Mullagh</a>" 
+football_menu[29]="<a href='/galway/naomhanna.php'>Naomh Anna</a>" 
+football_menu[30]="<a href='/galway/oileainarann.php'>Oileain Arann</a>" 
+football_menu[31]="<a href='/galway/oranmoremaree.php'>Oranmore-Maree</a>" 
+football_menu[32]="<a href='/galway/oughterard.php'>Oughterard</a>" 
+football_menu[33]="<a href='/galway/padraicmacpiarais.php'>Padraic Mac Piarais</a>" 
+football_menu[34]="<a href='/galway/portumna.php'>Portumna</a>" 
+football_menu[35]="<a href='/galway/renvyle.php'>Renvyle</a>" 
+football_menu[36]="<a href='/galway/salthillknocknacarra.php'>Salthill-Knocknacarra</a>" 
+football_menu[37]="<a href='/galway/spiddal.php'>Spiddal</a>" 
+football_menu[38]="<a href='/galway/stbrendansloughrea.php'>St. Brendan's, Loughrea</a>" 
+football_menu[39]="<a href='/galway/stcolmans.php'>St. Colman's</a>" 
+football_menu[40]="<a href='/galway/stgabrielskilconnell.php'>St. Gabriel's, Kilconnell</a>" 
+football_menu[41]="<a href='/galway/ballinasloe.php'>St. Grellan's, Ballinasloe</a>" 
+football_menu[42]="<a href='/galway/stjames.php'>St. James'</a>" 
+football_menu[43]="<a href='/galway/stkerills.php'>St. Kerill's</a>" 
+football_menu[44]="<a href='/galway/stmarysathenry.php'>St. Mary's, Athenry</a>" 
+football_menu[45]="<a href='/galway/stmichaels.php'>St. Michael's</a>" 
+football_menu[46]="<a href='/galway/stpatricksclonbur.php'>St. Patrick's, Clonbur</a>" 
+football_menu[47]="<a href='/galway/tommylarkins.php'>Tommy Larkins</a>" 
+football_menu[48]="<a href='/galway/tuamstars.php'>Tuam Stars</a>" 
+football_menu[49]="<a href='/galway/williamstown.php'>Williamstown</a>" 
+
+<!-- This will add a ladies' football club menu-->
+
+var ladiesfb_menu=new Array()
+
+<!-- This will add a camogie club menu-->
+
+var camogie_menu=new Array()
+
+
+<!-- This will add a defunct club menu-->
+
+var defunct_menu=new Array()
+defunct_menu[0]="<a href='/galway/abbeyduniry.php'>Abbey-Duniry</a>" 
+defunct_menu[1]="<a href='/galway/ancheadcath.php'>An Chéad Cath</a>" 
+defunct_menu[2]="<a href='/galway/army.php'>Army</a>" 
+defunct_menu[3]="<a href='/galway/athenrydewelts.php'>Athenry DeWelts</a>" 
+defunct_menu[4]="<a href='/galway/ballinakill.php'>Ballinakill</a>" 
+defunct_menu[5]="<a href='/galway/belcareharpers.php'>Belcare Harpers</a>" 
+defunct_menu[6]="<a href='/galway/castlefrench.php'>Castlefrench</a>" 
+defunct_menu[7]="<a href='/galway/collegerdgalway.php'>College RD, Galway</a>" 
+defunct_menu[8]="<a href='/galway/derrydonnell.php'>Derrydonnell</a>" 
+defunct_menu[9]="<a href='/galway/duniry.php'>Duniry</a>" 
+defunct_menu[10]="<a href='/galway/eireog.php'>Eire Og</a>" 
+defunct_menu[11]="<a href='/galway/erinshope.php'>Erin's Hope</a>" 
+defunct_menu[12]="<a href='/galway/fathergriffins.php'>Father Griffins</a>" 
+defunct_menu[13]="<a href='/galway/fohenagh.php'>Fohenagh</a>" 
+defunct_menu[14]="<a href='/galway/galwaycity.php'>Galway City</a>" 
+defunct_menu[15]="<a href='/galway/galwaycity98s.php'>Galway City 98's</a>" 
+defunct_menu[16]="<a href='/galway/galwaygaels.php'>Galway Gaels</a>" 
+defunct_menu[17]="<a href='/galway/galwaysarsfields.php'>Galway Sarsfields</a>" 
+defunct_menu[18]="<a href='/galway/kilnadeemadefunct.php'>Kilnadeema</a>" 
+defunct_menu[19]="<a href='/galway/leitrim.php'>Leitrim</a>" 
+defunct_menu[20]="<a href='/galway/loughrea.php'>Loughrea</a>" 
+defunct_menu[21]="<a href='/galway/maree.php'>Maree</a>" 
+defunct_menu[22]="<a href='/galway/meelickdefunct.php'>Meelick</a>" 
+defunct_menu[23]="<a href='/galway/mountbellewdefunct.php'>Mountbellew</a>" 
+defunct_menu[24]="<a href='/galway/peterswell.php'>Peterswell</a>" 
+defunct_menu[25]="<a href='/galway/tuamkrugers.php'>Tuam Krugers</a>" 
+defunct_menu[26]="<a href='/galway/tynagh.php'>Tynagh</a>" 
+defunct_menu[27]="<a href='/galway/wolfetones.php'>Wolfe Tones</a>" 
+defunct_menu[28]="<a href='/galway/woodford.php'>Woodford</a>" 
+
+<!-- This will add a competition menu-->
+var competition_menu=new Array()
+competition_menu[0]="<a href='/comp.php?co=galway&comp=shc'>SHC</a>" 
+competition_menu[1]="<a href='/comp.php?co=galway&comp=ihc'>IHC</a>" 
+competition_menu[2]="<a href='/comp.php?co=galway&comp=jahc'>JAHC</a>" 
+competition_menu[3]="<a href='/comp.php?co=galway&comp=jbhc'>JBHC</a>" 
+competition_menu[4]="<a href='/comp.php?co=galway&comp=jchc'>JCHC</a>" 
+competition_menu[5]="<a href='/comp.php?co=galway&comp=sfc'>SFC</a>" 
+competition_menu[6]="<a href='/comp.php?co=galway&comp=ifc'>IFC</a>" 
+competition_menu[7]="<a href='/comp.php?co=galway&comp=jafc'>JAFC</a>" 
+competition_menu[8]="<a href='/comp.php?co=galway&comp=jbfc'>JBFC</a>" 
+competition_menu[9]="<a href='/comp.php?co=galway&comp=jcfc'>JCFC</a>" 
+competition_menu[10]="<a href='/comp.php?co=galway&comp=shl'>SHL</a>" 
+competition_menu[11]="<a href='/comp.php?co=galway&comp=ihl'>IHL</a>" 
+competition_menu[12]="<a href='/comp.php?co=galway&comp=jahl'>JAHL</a>" 
+competition_menu[13]="<a href='/comp.php?co=galway&comp=jbhl'>JBHL</a>" 
+competition_menu[14]="<a href='/comp.php?co=galway&comp=jchl'>JCHL</a>" 
+competition_menu[15]="<a href='/comp.php?co=galway&comp=sfl'>SFL</a>" 
+competition_menu[16]="<a href='/comp.php?co=galway&comp=ifl'>IFL</a>" 
+competition_menu[17]="<a href='/comp.php?co=galway&comp=jafl'>JAFL</a>" 
+competition_menu[18]="<a href='/comp.php?co=galway&comp=jfbfl'>JBFL</a>" 
+competition_menu[19]="<a href='/comp.php?co=galway&comp=jcfl'>JCFL</a>" 
+competition_menu[20]="<a href='/comp.php?co=galway&comp=sbfl'>SBFL</a>" 
+competition_menu[21]="<a href='/comp.php?co=galway&comp=sweeneyoilleague'>Sweeney Oil FL</a>" 
+competition_menu[22]="<a href='/comp.php?co=galway&comp=ifswest'>IFS West</a>" 
+competition_menu[23]="<a href='/comp.php?co=galway&comp=ifsnorth'>IFS North</a>" 
+competition_menu[24]="<a href='/comp.php?co=galway&comp=jbflwest'>JBFL (W)</a>" 
+competition_menu[25]="<a href='/comp.php?co=galway&comp=jafl'>JAFL (N)</a>" 
+
+
+<!-- This will add menu of the list of years in which results exist-->
+var years_menu=new Array()
+years_menu[0]="<a href='/county.php?co=galway&N_year=2007'>2007</a>" 
+years_menu[1]="<a href='/county.php?co=galway&N_year=2006'>2006</a>" 
+
+
+var menuwidth='100px' //default menu width
+var menubgcolor='white'  //menu bgcolor
+var disappeardelay=250  //menu disappear speed onMouseout (in miliseconds)
+var hidemenu_onclick="yes" //hide menu when user clicks within menu?
+
+/////No further editting needed
+
+var ie4=document.all
+var ns6=document.getElementById&&!document.all
+
+if (ie4||ns6)
+document.write('<div id="dropmenudiv" style="visibility:hidden;width:'+menuwidth+';background-color:'+menubgcolor+'" onMouseover="clearhidemenu()" onMouseout="dynamichide(event)"></div>')
+
+function getposOffset(what, offsettype){
+var totaloffset=(offsettype=="left")? what.offsetLeft : what.offsetTop;
+var parentEl=what.offsetParent;
+while (parentEl!=null){
+totaloffset=(offsettype=="left")? totaloffset+parentEl.offsetLeft : totaloffset+parentEl.offsetTop;
+parentEl=parentEl.offsetParent;
+}
+return totaloffset;
+}
+
+
+function showhide(obj, e, visible, hidden, menuwidth){
+if (ie4||ns6)
+dropmenuobj.style.left=dropmenuobj.style.top="-500px"
+if (menuwidth!=""){
+dropmenuobj.widthobj=dropmenuobj.style
+dropmenuobj.widthobj.width=menuwidth
+}
+if (e.type=="click" && obj.visibility==hidden || e.type=="mouseover")
+obj.visibility=visible
+else if (e.type=="click")
+obj.visibility=hidden
+}
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function clearbrowseredge(obj, whichedge){
+var edgeoffset=0
+if (whichedge=="rightedge"){
+var windowedge=ie4 && !window.opera? iecompattest().scrollLeft+iecompattest().clientWidth-15 : window.pageXOffset+window.innerWidth-15
+dropmenuobj.contentmeasure=dropmenuobj.offsetWidth
+if (windowedge-dropmenuobj.x < dropmenuobj.contentmeasure)
+edgeoffset=dropmenuobj.contentmeasure-obj.offsetWidth
+}
+else{
+var topedge=ie4 && !window.opera? iecompattest().scrollTop : window.pageYOffset
+var windowedge=ie4 && !window.opera? iecompattest().scrollTop+iecompattest().clientHeight-15 : window.pageYOffset+window.innerHeight-18
+dropmenuobj.contentmeasure=dropmenuobj.offsetHeight
+if (windowedge-dropmenuobj.y < dropmenuobj.contentmeasure){ //move up?
+edgeoffset=dropmenuobj.contentmeasure+obj.offsetHeight
+if ((dropmenuobj.y-topedge)<dropmenuobj.contentmeasure) //up no good either?
+edgeoffset=dropmenuobj.y+obj.offsetHeight-topedge
+}
+}
+return edgeoffset
+}
+
+function populatemenu(what){
+if (ie4||ns6)
+dropmenuobj.innerHTML=what.join("")
+}
+
+
+function dropdownmenu(obj, e, menucontents, menuwidth){
+if (window.event) event.cancelBubble=true
+else if (e.stopPropagation) e.stopPropagation()
+clearhidemenu()
+dropmenuobj=document.getElementById? document.getElementById("dropmenudiv") : dropmenudiv
+populatemenu(menucontents)
+
+if (ie4||ns6){
+showhide(dropmenuobj.style, e, "visible", "hidden", menuwidth)
+dropmenuobj.x=getposOffset(obj, "left")
+dropmenuobj.y=getposOffset(obj, "top")
+dropmenuobj.style.left=dropmenuobj.x-clearbrowseredge(obj, "rightedge")+"px"
+dropmenuobj.style.top=dropmenuobj.y-clearbrowseredge(obj, "bottomedge")+obj.offsetHeight+"px"
+}
+
+return clickreturnvalue()
+}
+
+function clickreturnvalue(){
+if (ie4||ns6) return false
+else return true
+}
+
+function contains_ns6(a, b) {
+while (b.parentNode)
+if ((b = b.parentNode) == a)
+return true;
+return false;
+}
+
+function dynamichide(e){
+if (ie4&&!dropmenuobj.contains(e.toElement))
+delayhidemenu()
+else if (ns6&&e.currentTarget!= e.relatedTarget&& !contains_ns6(e.currentTarget, e.relatedTarget))
+delayhidemenu()
+}
+
+function hidemenu(e){
+if (typeof dropmenuobj!="undefined"){
+if (ie4||ns6)
+dropmenuobj.style.visibility="hidden"
+}
+}
+
+function delayhidemenu(){
+if (ie4||ns6)
+delayhide=setTimeout("hidemenu()",disappeardelay)
+}
+
+function clearhidemenu(){
+if (typeof delayhide!="undefined")
+clearTimeout(delayhide)
+}
+
+if (hidemenu_onclick=="yes")
+document.onclick=hidemenu
+
+</script><title>Galway </title>
+</head>
+
+<head>
+<script type="text/javascript">var cc=new Image();cc.onload=function(){cc.hit=(typeof(Env)=="undefined");};cc.src="http://www.gaelicgames.in/fbstyle/global_menu_space.gif";Env={method:"GET",dev:0,start:(new Date( )).getTime(),cache:(((typeof(cc)!="undefined")&&cc.hit)||0),ps_limit:5,ps_ratio:4,pkgv:10};</script><link rel="stylesheet" href="http://www.gaainfo.com/common.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="http://static.ak.facebook.com/css/api/confirmation.css?12:57114" type="text/css"/><!--[if lte IE 6]><style type="text/css" media="screen">/* <![CDATA[ */ @import url(http://static.ak.facebook.com/css/ie6.css?12:58408); /* ]]> */</style>
+<![endif]-->
+<!--[if gte IE 7]><style type="text/css" media="screen">/* <![CDATA[ */ @import url(http://static.ak.facebook.com/css/ie7.css?12:58408); /* ]]> */</style>
+<![endif]-->
+
+<!-- ICON REMOVED: <link rel="shortcut icon" href="http://static.ak.facebook.com/favicon.ico" />-->
+</head>
+
+
+
+<body>
+<table border="0" width="991" id="table1" cellspacing="0" cellpadding="0" valign="top">
+<tr><td width="748" valign="top">
+<table border="0" width="748" id="table2" cellspacing="0" cellpadding="0" valign="top">
+<tr><td align="right" background="http://www.gaainfo.com/images/logo_long.png" height="70" valign="middle">
+<script type="text/javascript"><!--
+google_ad_client = "pub-9102303747047618";
+//ws_top 468x60
+google_ad_slot = "4109926987";
+google_ad_width = 468;
+google_ad_height = 60;
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</td>
+</tr>
+		</table>
+		<table border="0" width="748" id="table5" cellspacing="0" cellpadding="0">
+			<tr>
+				<td><font size="2" face="Arial"
+				><a href="http://www.gaainfo.com/">GAAinfo</a> &gt; 
+				<a href='http://www.gaainfo.com/galway.php'>Galway</a>
+				</font>				
+				</td>
+			</tr>
+			<tr>
+				<td height=4>	
+			
+	
+	
+				</td>
+			</tr>
+			<tr>
+				<td>
+			<table border="0" width="748" id="table3" cellspacing="0" cellpadding="0">
+	
+			<tr>
+				<td width="120" valign="top"><font face="Arial" size="2">
+				<!-- Drop Down Menu for each County with Clubs and Competitions and Divisions and Previous Years where applicable -->
+				<table cellpadding=0 cellspacing=0 border=0 width=120><tr><td width="5"></td><td>
+<img src="http://www.gaainfo.com/images/nav_top.png" width=110 height=10 alt=""><br>
+<table cellpadding=0 cellspacing=0 border=0><tr><td bgcolor=005000 width="5"></td><td bgcolor=005000 width="105" valign="top" cellpadding=0 cellspacing=0>
+<font face="Arial" size="2" color="#ffffff">
+
+<b>Galway:</b><br>&nbsp;<a href='http://www.gaainfo.com/news_county.php?co=galway'><font color='#ffffff'>News</font></a><br>&nbsp;<a href='http://www.gaainfo.com/hurling.php?co=galway'><font color='#ffffff'>Hurling</font></a><br>&nbsp;<a href='http://www.gaainfo.com/football.php?co=galway'><font color='#ffffff'>Football</font></a><br>&nbsp;<a href='http://www.gaainfo.com/allplayers_county.php?co=galway'><font color='#ffffff'>Player Database</font></a><br>&nbsp;<a href='http://www.gaainfo.com/countyroh.php?co=galway'><font color='#ffffff'>Roll of Honour</font></a><br>&nbsp;<a href='http://www.gaainfo.com/compare.php?rival=12'><font color='#ffffff'>Rivalries</font></a><br>&nbsp;<a href='http://www.gaainfo.com/countymedia.php?co=galway'><font color='#ffffff'>Video & Pics</font></a><br>
+
+</td></tr></table>
+<img src="http://www.gaainfo.com/images/nav_bottom.png" width=110 height=10 alt=""><br>
+</td><td width="5"></td></tr>
+</table>
+<img src="http://www.gaainfo.com/images/nav_gap.png" height=5 alt="">
+
+<table cellpadding=0 cellspacing=0 border=0 width=120><tr><td width="5"></td><td>
+<img src="http://www.gaainfo.com/images/nav_top.png" width=110 height=10 alt=""><br>
+<table cellpadding=0 cellspacing=0 border=0><tr><td bgcolor=005000 width="5"></td><td bgcolor=005000 width="105" valign="top" cellpadding=0 cellspacing=0>
+<font face="Arial" size="2" color="#ffffff">
+<b>Clubs:</b><br>&nbsp;<a href='http://www.gaainfo.com/countymap.php?co=galway'><font color='#ffffff'>Map of Clubs</font></a><br>&nbsp;<a href='galway.php' onClick='return dropdownmenu(this, event, division_menu, "200px")' onMouseout='delayhidemenu()'><font color='#ffffff'>Divisions</font></a><br>
+&nbsp;<a href='galway/westgalway.php' onClick='return dropdownmenu(this, event, westgalway_menu, "200px")' onMouseout='delayhidemenu()'><font color='#ffffff'>West Galway</font></a><br>
+&nbsp;<a href='galway/northeastgalway.php' onClick='return dropdownmenu(this, event, northeastgalway_menu, "200px")' onMouseout='delayhidemenu()'><font color='#ffffff'>North East Galway</font></a><br>
+<b>Club by Sport:</b><br>&nbsp;<a href='galway.php' onClick='return dropdownmenu(this, event, hurling_menu, "200px")' onMouseout='delayhidemenu()'><font color='#ffffff'>Hurling</font></a><br>
+&nbsp;<a href='galway.php' onClick='return dropdownmenu(this, event, football_menu, "200px")' onMouseout='delayhidemenu()'><font color='#ffffff'>Football</font></a><br>
+&nbsp;<a href='galway.php' onClick='return dropdownmenu(this, event, camogie_menu, "200px")' onMouseout='delayhidemenu()'><font color='#ffffff'>Camogie</font></a><br>
+&nbsp;<a href='galway.php' onClick='return dropdownmenu(this, event, ladiesfb_menu, "200px")' onMouseout='delayhidemenu()'><font color='#ffffff'>Ladies' F'ball</font></a><br>
+&nbsp;<a href='galway.php' onClick='return dropdownmenu(this, event, defunct_menu, "200px")' onMouseout='delayhidemenu()'><font color='#ffffff'>Defunct</font></a><br>
+
+</td></tr></table>
+<img src="http://www.gaainfo.com/images/nav_bottom.png" width=110 height=10 alt=""><br>
+</td><td width="5"></td></tr>
+</table>
+<img src="http://www.gaainfo.com/images/nav_gap.png" height=5 alt="">
+		
+							<table cellpadding=0 cellspacing=0 border=0 width=120><tr><td width="5"></td><td>
+				<img src="http://www.gaainfo.com/images/nav_top.png" width=110 height=10 alt=""><br>
+				<table cellpadding=0 cellspacing=0 border=0><tr><td bgcolor=005000 width="5"></td><td bgcolor=005000 width="105" valign="top" cellpadding=0 cellspacing=0>
+				<font face="Arial" size="2" color="#ffffff">
+				<b>Inter County:</b><br>
+				&nbsp;<a href="http://www.gaainfo.com/news.php"><font color="#ffffff">News</font></a><br>
+				&nbsp;<a href="index.php" onClick="return dropdownmenu(this, event, ichurling_menu, '200px')" onMouseout="delayhidemenu()"><font color="#ffffff">Hurling</font></a><br>
+				&nbsp;<a href="index.php" onClick="return dropdownmenu(this, event, icfootball_menu, '200px')" onMouseout="delayhidemenu()"><font color="#ffffff">Football</font></a><br>
+				&nbsp;<a href="index.php" onClick="return dropdownmenu(this, event, icother_menu, '200px')" onMouseout="delayhidemenu()"><font color="#ffffff">Other</font></a><br>
+				&nbsp;<a href="http://www.gaainfo.com/allplayers.php"><font color="#ffffff">Player Database</font></a><br>				
+				&nbsp;<a href="http://www.gaainfo.com/roh.php"><font color="#ffffff">Roll of Honour</font></a><br>				
+				</td></tr></table>
+				<img src="http://www.gaainfo.com/images/nav_bottom.png" width=110 height=10 alt=""><br>
+				</td><td width="5"></td></tr>
+				<tr><td colspan="3"><img src="http://www.gaainfo.com/images/nav_gap.png" height=5 alt=""></td></tr>
+				<tr><td width="5"></td><td>
+				<img src="http://www.gaainfo.com/images/nav_top.png" width=110 height=10 alt=""><br>
+				<table cellpadding=0 cellspacing=0 border=0><tr><td bgcolor=005000 width="5"></td><td bgcolor=005000 width="105" valign="top" cellpadding=0 cellspacing=0>
+				<font face="Arial" size="2" color="#ffffff">
+				<b>Ireland:</b><br>
+				&nbsp;<a href="index.php" onClick="return dropdownmenu(this, event, countyAK_menu, '200px')" onMouseout="delayhidemenu()"><font color="#ffffff">Counties A-K</font></a><br>
+				&nbsp;<a href="index.php" onClick="return dropdownmenu(this, event, countyLZ_menu, '200px')" onMouseout="delayhidemenu()"><font color="#ffffff">Counties L-W</font></a><br>
+				&nbsp;<a href="http://www.gaainfo.com/irishunis.php"><font color="#ffffff">Colleges</font></a><br>
+				&nbsp;<a href="index.php" onClick="return dropdownmenu(this, event, schools_menu, '200px')" onMouseout="delayhidemenu()"><font color="#ffffff">Schools</font></a><br>
+				&nbsp;<a href="index.php" onClick="return dropdownmenu(this, event, interfirms_menu, '200px')" onMouseout="delayhidemenu()"><font color="#ffffff">Inter-firms</font></a>
+				<b>Overseas:</b><br>
+				&nbsp;<a href="northamerica.php" onClick="return dropdownmenu(this, event, canada_menu, '200px')" onMouseout="delayhidemenu()"><font color="#ffffff">Canada</font></a><br>
+				&nbsp;<a href="northamerica.php" onClick="return dropdownmenu(this, event, usa_menu, '200px')" onMouseout="delayhidemenu()"><font color="#ffffff">USA</font></a><br>
+				&nbsp;<a href="britain.php" onClick="return dropdownmenu(this, event, britain_menu, '200px')" onMouseout="delayhidemenu()"><font color="#ffffff">Britain</font></a><br>
+				&nbsp;<a href="australasia.php" onClick="return dropdownmenu(this, event, australasia_menu, '200px')" onMouseout="delayhidemenu()"><font color="#ffffff">Australia & NZ</font></a><br>
+				&nbsp;<a href="http://www.gaainfo.com/europe.php"><font color="#ffffff">Europe</font></a><br>
+				&nbsp;<a href="http://www.gaainfo.com/asia.php"><font color="#ffffff">Asia</font></a>
+				</td></tr></table>
+				<img src="http://www.gaainfo.com/images/nav_bottom.png" width=110 height=10 alt=""><br>
+				</td><td width="5"></td></tr>
+				<tr><td colspan="3"><img src="http://www.gaainfo.com/images/nav_gap.png" height=5 alt=""></td></tr>
+				<tr><td width="5"></td><td>
+				<img src="http://www.gaainfo.com/images/nav_top.png" width=110 height=10 alt=""><br>
+				<table cellpadding=0 cellspacing=0 border=0><tr><td bgcolor=005000 width="5"></td><td bgcolor=005000 width="105" valign="top" cellpadding=0 cellspacing=0>
+				<font face="Arial" size="2" color="#ffffff">
+				<b>Features:</b><br>
+				&nbsp;<a href="http://www.gaainfo.com/messageboard.php"><font color="#ffffff">Messageboards</font></a><br>
+				&nbsp;<a href="http://www.gaainfo.com/compare.php"><font color="#ffffff">Rivalries</font></a><br>
+				&nbsp;<a href="http://www.gaainfo.com/record.php"><font color="#ffffff">Over the years</font></a><br>			
+				&nbsp;<a href="http://www.gaainfo.com/rankings/index.php"><font color="#ffffff">Rankings</font></a><br>
+				&nbsp;<a href="http://www.gaainfo.com/plugins/index.php"><font color="#ffffff"><b>Plugins</b></font></a><br>
+				&nbsp;<a href="http://www.gaainfo.com/articles/gaaclubs.php"><font color="#ffffff"><b>All GAA Clubs</b></font></a><br>
+				&nbsp;<a href="http://www.gaainfo.com/articles/hurlingclubs.php"><font color="#ffffff">Hurling Clubs</font></a><br>
+				</td></tr></table>
+				<img src="http://www.gaainfo.com/images/nav_bottom.png" width=110 height=10 alt=""><br>
+				</td><td width="5"></td></tr>
+				</table>
+							
+					<img src="http://www.gaainfo.com/images/nav_gap.png" height=5 alt="">					
+						
+				<table border="0" width="100%" id="table4" cellspacing="0" cellpadding="0" height="600">
+					<tr>
+					<td width="3px"></td>
+						<td width="120px">
+<script type="text/javascript"><!--
+google_ad_client = "pub-9102303747047618";
+//ws_left 120x600
+google_ad_slot = "8166253570";
+google_ad_width = 120;
+google_ad_height = 600;
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>						
+
+						</td>
+					<td width="5px"></td>
+					</tr>
+				</table>	
+				
+				</td>
+
+				<td width="2">&nbsp;</td>
+				<td width="626" valign="top">
+
+
+			
+			<table><tbody><tr><td class="spacer"></td><td><img src="http://www.gaainfo.com/graphics/midicrest/00/midicrest_00_000.jpg"/></td><td><font size="5"><b>Galway </b></font></td></tr></tbody></table>
+
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Language" content="en-gb">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Galway </title>
+</head>
+
+<head>
+<script type="text/javascript">var cc=new Image();cc.onload=function(){cc.hit=(typeof(Env)=="undefined");};cc.src="http://www.gaelicgames.in/fbstyle/global_menu_space.gif";Env={method:"GET",dev:0,start:(new Date( )).getTime(),cache:(((typeof(cc)!="undefined")&&cc.hit)||0),ps_limit:5,ps_ratio:4,pkgv:10};</script><link rel="stylesheet" href="http://www.gaainfo.com/common.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="http://static.ak.facebook.com/css/api/confirmation.css?12:57114" type="text/css"/><!--[if lte IE 6]><style type="text/css" media="screen">/* <![CDATA[ */ @import url(http://static.ak.facebook.com/css/ie6.css?12:58408); /* ]]> */</style>
+<![endif]-->
+<!--[if gte IE 7]><style type="text/css" media="screen">/* <![CDATA[ */ @import url(http://static.ak.facebook.com/css/ie7.css?12:58408); /* ]]> */</style>
+<![endif]-->
+
+<!-- ICON REMOVED: <link rel="shortcut icon" href="http://static.ak.facebook.com/favicon.ico" />-->
+</head>
+
+<body>
+
+<table class="lists" cellspacing="0" border="0" width="100%">
+<tbody>
+	<tr>
+    	<th>
+        <h4>Map of Galway and its clubs</h4><div align=right><a href="http://www.gaainfo.com/countymapprint.php?co=galway" target="_blank"><img border="0" src="http://www.gaainfo.com/images/printme.png"></a></div>              
+        </th>
+    </tr>
+    <tr >
+    	<td class="list">
+		</td>
+	</tr>
+	<tr>
+    	<td class="see_all"></td>
+	</tr>
+</tbody>
+</table>
+
+
+<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-7"/>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAApBEi3X6hcEJHFa8flXArdRSJqNeRRsQE1UTyEN3i8TZnF0f_-BTnFELvpcYKt2U5F73SccdNwm261A"
+      type="text/javascript"></script>
+      <style type="text/css">
+       #container {font-size:15pt;}
+    .iwstyle {font-size:10pt;} 
+</style>  
+    <script type="text/javascript">
+
+    //<![CDATA[
+    function load() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map"));
+        var map = new GMap2(document.getElementById("map"));
+		map.addControl(new GSmallMapControl());
+		map.setCenter(new GLatLng(
+		53.39223, -9.10162), 8);
+		// Creates a marker at the given point with the given number label
+		function createMarker(point,icon,message) {
+			var marker = new GMarker(point,icon);
+			GEvent.addListener(marker, "click", function() {
+			marker.openInfoWindowHtml( message);
+			});
+			return marker;
+		}
+		
+		// Add main marker to map
+		// Create our "big" marker icon
+		var icon = new GIcon();
+		icon.image = "images/regular_mk_red.png";
+		icon.shadow = "images/regular_mk_shadow.png";
+
+		icon.iconSize = new GSize(20, 34);
+		icon.shadowSize = new GSize(37, 34);
+		icon.iconAnchor = new GPoint(9, 34);
+		icon.infoWindowAnchor = new GPoint(9, 2);
+		icon.infoShadowAnchor = new GPoint(18, 25);
+		
+		// County Ground Marker:
+		var county_point = new GLatLng( 53.26427, -9.08175);
+		map.addOverlay(createMarker(county_point,icon,"<span class='iwstyle'><b>Galway</b><br>NEW: <a href=http://maps.google.co.uk/maps?f=d&hl=en&geocode=&saddr=&daddr=53.26427,-9.08175+(galway) target='_blank'>Driving directions to Pearse Stadium</a>"));		
+		// Club Marker if required:
+
+		
+		// Add random points to  map:
+		var bounds = map.getBounds();
+		var southWest = bounds.getSouthWest();
+		var northEast = bounds.getNorthEast();
+		var lngSpan = northEast.lng() - southWest.lng();
+		var latSpan = northEast.lat() - southWest.lat();
+
+		// Create our "tiny" marker icon
+		var icon_one = new GIcon();
+		icon_one.image = "images/mini_mk_yellow.png";
+		icon_one.shadow = "images/mini_mk_shadow.png";
+		icon_one.iconSize = new GSize(12, 20);
+		icon_one.shadowSize = new GSize(22, 20);
+		icon_one.iconAnchor = new GPoint(6, 20);
+		icon_one.infoWindowAnchor = new GPoint(5, 1);
+
+		// Create our "medium" sized marker icon
+		var icon_two = new GIcon();
+		icon_two.image = "images/midi_mk_yellow.png";
+		icon_two.shadow = "images/regular_mk_shadow.png";
+		icon_two.iconSize = new GSize(32, 32);
+		icon_two.shadowSize = new GSize(37, 34);
+		icon_two.iconAnchor = new GPoint(9, 34);
+		icon_two.infoWindowAnchor = new GPoint(9, 2);
+
+var county_pts = new GLatLng(53.44051,-8.72733);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_001.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=abbeyknockmoy target='_blank'>Abbeyknockmoy</a></td></tr></table>"));var county_pts = new GLatLng(53.39858,-8.33768);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/br.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=ahascraghfohenagh target='_blank'>Ahascragh-Fohenagh</a></td></tr></table>"));var county_pts = new GLatLng(53.38978,-9.07977);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_003.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=annaghdown target='_blank'>Annaghdown</a></td></tr></table>"));var county_pts = new GLatLng(53.52107,-8.33193);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/ns.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=ballygar target='_blank'>Ballygar</a></td></tr></table>"));var county_pts = new GLatLng(53.18979,-8.91214);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/gw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=ballindereen target='_blank'>Ballindereen</a></td></tr></table>"));var county_pts = new GLatLng(53.01525,-8.82799);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/ak.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=beagh target='_blank'>Beagh</a></td></tr></table>"));var county_pts = new GLatLng(53.26767,-9.16278);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_007.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=barna target='_blank'>Barna [G]</a></td></tr></table>"));var county_pts = new GLatLng(53.25959,-9.20829);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_008.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=barnafurbo target='_blank'>Barna/Furbo</a></td></tr></table>"));var county_pts = new GLatLng(53.49777,-9.02415);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/bw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=caherlistrane target='_blank'>Caherlistrane</a></td></tr></table>"));var county_pts = new GLatLng(53.43296,-8.43862);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/gw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=caltra target='_blank'>Caltra</a></td></tr></table>"));var county_pts = new GLatLng(53.2745,-8.40913);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_011.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=cappataggle target='_blank'>Cappataggle</a></td></tr></table>"));var county_pts = new GLatLng(53.32093,-9.85319);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/ky.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=carnacashel target='_blank'>Carna-Cashel</a></td></tr></table>"));var county_pts = new GLatLng(53.30852,-8.94081);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_013.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=carnmore target='_blank'>Carnmore</a></td></tr></table>"));var county_pts = new GLatLng(53.3014,-9.0145);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_014.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=castlegar target='_blank'>Castlegar</a></td></tr></table>"));var county_pts = new GLatLng(53.26621,-9.59724);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/kr.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=carraroe target='_blank'>Carraroe</a></td></tr></table>"));var county_pts = new GLatLng(53.13946,-8.93903);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_016.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=kinvara target='_blank'>Kinvara</a></td></tr></table>"));var county_pts = new GLatLng(53.34276,-8.95231);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/gl.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=claregalway target='_blank'>Claregalway</a></td></tr></table>"));var county_pts = new GLatLng(53.22854,-8.88631);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/mw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=clarinbridge target='_blank'>Clarinbridge</a></td></tr></table>"));var county_pts = new GLatLng(53.48945,-10.02324);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/rw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=clifden target='_blank'>Clifden</a></td></tr></table>"));var county_pts = new GLatLng(53.43224,-8.87249);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_020.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=corofin target='_blank'>Corofin</a></td></tr></table>"));var county_pts = new GLatLng(53.53429,-8.71988);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/sw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=cortoonshamrocks target='_blank'>Cortoon Shamrocks</a></td></tr></table>"));var county_pts = new GLatLng(53.15537,-8.8091);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_022.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=ardrahan target='_blank'>Ardrahan</a></td></tr></table>"));var county_pts = new GLatLng(53.22454,-8.7331);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_023.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=craughwell target='_blank'>Craughwell</a></td></tr></table>"));var county_pts = new GLatLng(53.61512,-8.74417);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/gw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=dunmoremchales target='_blank'>Dunmore McHales</a></td></tr></table>"));var county_pts = new GLatLng(53.27979,-9.0687);icon_two.image = "http://www.gaainfo.com/images/midi_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_two,"<table><tr><td><table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_038.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=liammellows target='_blank'>Liam Mellows</a></td></tr><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=fathergriffinseireog target='_blank'>Father Griffins/Éire Óg</a></td></tr></table></div></td></tr></table>"));var county_pts = new GLatLng(53.60723,-8.56384);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/bl.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=glenamaddy target='_blank'>Glenamaddy</a></td></tr></table>"));var county_pts = new GLatLng(53.06587,-8.81884);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_028.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=gort target='_blank'>Gort</a></td></tr></table>"));var county_pts = new GLatLng(53.25541,-8.69259);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/gy.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=kilconieron target='_blank'>Kilconieron</a></td></tr></table>"));var county_pts = new GLatLng(53.57335,-8.97729);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/grw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=kilconly target='_blank'>Kilconly</a></td></tr></table>"));var county_pts = new GLatLng(53.55739,-8.64491);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/rw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=kilkerrinclonberne target='_blank'>Kilkerrin-Clonberne</a></td></tr></table>"));var county_pts = new GLatLng(53.3885,-9.24723);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/bw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=killanin target='_blank'>Killanin</a></td></tr></table>"));var county_pts = new GLatLng(53.47768,-8.71722);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/rw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=killererin target='_blank'>Killererin</a></td></tr></table>"));var county_pts = new GLatLng(53.15084,-8.18636);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/ak.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=killimor target='_blank'>Killimor [G]</a></td></tr></table>"));var county_pts = new GLatLng(53.30493,-8.62427);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_035.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=killimordaly target='_blank'>Killimordaly</a></td></tr></table>"));var county_pts = new GLatLng(53.16622,-8.43561);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_036.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=kilnadeemaleitrim target='_blank'>Kilnadeema-Leitrim</a></td></tr></table>"));var county_pts = new GLatLng(53.23409,-8.27279);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/bw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=kiltormer target='_blank'>Kiltormer</a></td></tr></table>"));var county_pts = new GLatLng(53.20151,-8.14053);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/bw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=meelickeyrecourt target='_blank'>Meelick-Eyrecourt</a></td></tr></table>"));var county_pts = new GLatLng(53.30395,-9.07295);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/gl.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=menlough target='_blank'>Menlough</a></td></tr></table>"));var county_pts = new GLatLng(53.30603,-9.06883);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_041.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=menloemmets target='_blank'>Menlo Emmets</a></td></tr></table>"));var county_pts = new GLatLng(53.23836,-9.46232);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/bw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=michealbreathnach target='_blank'>Micheal Breathnach</a></td></tr></table>"));var county_pts = new GLatLng(53.60893,-8.9);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/bw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=milltown target='_blank'>Milltown</a></td></tr></table>"));var county_pts = new GLatLng(53.37488,-8.70512);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_044.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=moniveaabbeyknockmoy target='_blank'>Monivea-Abbeyknockmoy</a></td></tr></table>"));var county_pts = new GLatLng(53.46961,-8.49913);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/ak.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=mountbellewmoylough target='_blank'>Mountbellew-Moylough</a></td></tr></table>"));var county_pts = new GLatLng(53.34046,-9.18337);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_046.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=moycullen target='_blank'>Moycullen</a></td></tr></table>"));var county_pts = new GLatLng(53.06649,-8.78614);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/by.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=kilbeacanty target='_blank'>Kilbeacanty</a></td></tr></table>"));var county_pts = new GLatLng(53.22325,-8.40094);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_048.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=mullagh target='_blank'>Mullagh</a></td></tr></table>"));var county_pts = new GLatLng(53.28975,-9.67037);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_049.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=naomhanna target='_blank'>Naomh Anna</a></td></tr></table>"));var county_pts = new GLatLng(53.27629,-9.01999);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/kw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=naomhcolumba target='_blank'>Naomh Columba</a></td></tr></table>"));var county_pts = new GLatLng(53.17595,-8.65319);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=stthomas target='_blank'>St. Thomas'</a></td></tr></table>"));var county_pts = new GLatLng(53.11417,-9.68505);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/gw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=oileainarann target='_blank'>Oileain Arann</a></td></tr></table>"));var county_pts = new GLatLng(53.26701,-8.93695);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_053.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=oranmoremaree target='_blank'>Oranmore-Maree</a></td></tr></table>"));var county_pts = new GLatLng(53.34607,-9.60167);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/gm.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=padraicmacpiarais target='_blank'>Padraic Mac Piarais</a></td></tr></table>"));var county_pts = new GLatLng(53.09,-8.21176);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_055.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=portumna target='_blank'>Portumna</a></td></tr></table>"));var county_pts = new GLatLng(53.29054,-9.12263);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_056.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=rahoonnewcastle target='_blank'>Rahoon-Newcastle</a></td></tr></table>"));var county_pts = new GLatLng(53.26353,-9.08419);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_057.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=salthillknocknacarra target='_blank'>Salthill-Knocknacarra</a></td></tr></table>"));var county_pts = new GLatLng(53.24452,-8.55509);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_058.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=sarsfields target='_blank'>Sarsfields</a></td></tr></table>"));var county_pts = new GLatLng(53.41183,-8.63268);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/bw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=skehana target='_blank'>Skehana</a></td></tr></table>"));var county_pts = new GLatLng(53.24344,-9.30486);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/by.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=spiddal target='_blank'>Spiddal</a></td></tr></table>"));var county_pts = new GLatLng(53.20012,-8.56942);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/bl.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=stbrendansloughrea target='_blank'>St. Brendan's, Loughrea</a></td></tr></table>"));var county_pts = new GLatLng(53.37933,-8.49303);icon_two.image = "http://www.gaainfo.com/images/midi_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_two,"<table><tr><td><table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=stkerills target='_blank'>St. Kerill's</a></td></tr><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=pearses target='_blank'>Pearses</a></td></tr></table></div></td></tr></table>"));var county_pts = new GLatLng(53.28405,-9.02115);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_063.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=stjames target='_blank'>St. James'</a></td></tr></table>"));var county_pts = new GLatLng(53.28241,-9.07715);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/bw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=stmichaels target='_blank'>St. Michael's</a></td></tr></table>"));var county_pts = new GLatLng(53.53806,-9.36104);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_065.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=stpatricksclonbur target='_blank'>St. Patrick's, Clonbur</a></td></tr></table>"));var county_pts = new GLatLng(53.3008,-8.7445);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_066.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=stmarysathenry target='_blank'>St. Mary's, Athenry</a></td></tr></table>"));var county_pts = new GLatLng(53.5167,-8.8537);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_067.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=tuamstars target='_blank'>Tuam Stars</a></td></tr></table>"));var county_pts = new GLatLng(53.3821,-8.85438);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_068.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=turloughmore target='_blank'>Turloughmore</a></td></tr></table>"));var county_pts = new GLatLng(53.09907,-8.38171);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/gaa_versions/midi/bgw.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=tynaghabbeyduniry target='_blank'>Tynagh Abbey Duniry</a></td></tr></table>"));var county_pts = new GLatLng(53.65331,-8.44531);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=glinsk target='_blank'>Glinsk</a></td></tr></table>"));var county_pts = new GLatLng(53.05257,-8.40282);icon_one.image = "http://www.gaainfo.com/images/mini_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_072.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=tommylarkins target='_blank'>Tommy Larkins</a></td></tr></table>"));var county_pts = new GLatLng(53.3328,-8.3922);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=stgabrielskilconnell target='_blank'>St. Gabriel's, Kilconnell</a></td></tr></table>"));var county_pts = new GLatLng(53.43112,-9.3231);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=oughterard target='_blank'>Oughterard</a></td></tr></table>"));var county_pts = new GLatLng(53.4711,-9.1051);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_075.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=headford target='_blank'>Headford</a></td></tr></table>"));var county_pts = new GLatLng(53.47303,-8.91231);icon_one.image = "http://www.gaainfo.com/images/mini_mk_blue.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=sylane target='_blank'>Sylane</a></td></tr></table>"));var county_pts = new GLatLng(53.3313,-8.2151);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/midicrest/12/midicrest_12_077.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=ballinasloe target='_blank'>St. Grellan's, Ballinasloe</a></td></tr></table>"));var county_pts = new GLatLng(53.6496,-8.51398);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=williamstown target='_blank'>Williamstown</a></td></tr></table>"));var county_pts = new GLatLng(53.59587,-9.97739);icon_one.image = "http://www.gaainfo.com/images/mini_mk_red.png";map.addOverlay(createMarker(county_pts,icon_one,"<table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=renvyle target='_blank'>Renvyle</a></td></tr></table>"));var county_pts = new GLatLng(0,0);icon_two.image = "http://www.gaainfo.com/images/midi_mk_yellow.png";map.addOverlay(createMarker(county_pts,icon_two,"<table><tr><td><table><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=stcolmans target='_blank'>St. Colman's</a></td></tr><tr><td width=16px><img src=\"http://www.gaainfo.com/graphics/generic/midi_generic.jpg\" \></td><td style=\"font-size: 90%\" ><a href=http://www.gaainfo.com/club.php?co=galway&club=galwaydevelopment target='_blank'>Galway Development</a></td></tr></table></div></td></tr></table>"));
+				
+}
+}
+
+    //]]>
+    </script>
+  </head>
+  <body onload="load()" onunload="GUnload()">
+<div id="map" style="width: 626px; height: 330px;"></div>	
+
+	<p><b><div align="center" style="font-size: 10pt;"><img src="http://www.gaainfo.com/images/mini_sq_yellow.png" /> Dual <img src="http://www.gaainfo.com/images/mini_sq_red.png" /> Football
+	<img src="http://www.gaainfo.com/images/mini_sq_blue.png" /> Hurling <img src="http://www.gaainfo.com/images/mini_sq_green.png" /> Other (Camogie & Ladies Football)</div></p></b>
+  </body>
+</html>
+</body>
+</html>
+						<iframe src="http://www.gaainfo.com/msgbrd/msgbrd.php?co=galway&page=1" frameborder="0" scrolling ="no" style="height:660px;width:626px"></iframe>			
+<hr noshade color="#000000" style="text-align: center" size="1">
+<div align=center><a href= http://www.gaainfo.com/index.php>Home</a> - 
+<a href= http://www.gaainfo.com/contact.php>Contact Us</a> - 
+<a href= http://www.gaainfo.com/advertising.php>Advertising</a>
+- <a href="http://p067.ezboard.com/bgaelicgamesinformationservice">Messageboard</a></div>
+
+</td>
+			</tr>
+		</table></td>
+			</tr>
+		</table>
+		
+		</td>
+		<td width="1">&nbsp;</td>
+				<td width="242" valign="top" align="center">
+		<table class="lists" cellspacing="0" border="0" width="100%"><tr><th><h4>Recent Inter-County Results</h4></th></tr></table><table border="0" id="table4" width="100%" border=0 cellspacing=0 style="font-size: 10pt;"><tr><tr bgcolor='#D9FFFF'><td colspan=7>Monday, 20th of October 2008</td></tr><td width='110'><a href='http://www.gaainfo.com/article.php?story=0&matchno=464&co=intercounty&year=2008' >FBD League F</a></td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_012.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=galway' target='_top'>G</a></td><td width='30'>4-15</td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_054.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=newyork' target='_top'>NY</a></td><td width='30'>1-13</td></tr><tr><tr bgcolor='#D9FFFF'><td colspan=7>Sunday, 21st of September 2008</td></tr><td width='110'><a href='http://www.gaainfo.com/article.php?story=20080922002&matchno=448&co=intercounty&year=2008' >All-Ireland SFC F</a></td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_028.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=tyrone' target='_top'>TY</a></td><td width='30'>1-15</td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_013.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=kerry' target='_top'>KY</a></td><td width='30'>0-14</td></tr><tr><tr bgcolor='#D9FFFF'><td colspan=7>Sunday, 07th of September 2008</td></tr><td width='110'><a href='http://www.gaainfo.com/article.php?story=20080908002&matchno=447&co=intercounty&year=2008' >All-Ireland SHC F</a></td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_015.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=kilkenny' target='_top'>KK</a></td><td width='30'>3-30</td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_029.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=waterford' target='_top'>WD</a></td><td width='30'>1-13</td></tr><tr><tr bgcolor='#D9FFFF'><td colspan=7>Sunday, 31st of August 2008</td></tr><td width='110'><a href='http://www.gaainfo.com/article.php?story=20080901001&matchno=463&co=intercounty&year=2008' >All-Ireland SFC SF R</a></td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_013.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=kerry' target='_top'>KY</a></td><td width='30'>3-14</td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_006.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=cork' target='_top'>C</a></td><td width='30'>2-13</td></tr><tr><td width='110'><a href='http://www.gaainfo.com/article.php?story=20080901002&matchno=446&co=intercounty&year=2008' >All-Ireland SFC SF</a></td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_028.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=tyrone' target='_top'>TY</a></td><td width='30'>0-23</td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_031.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=wexford' target='_top'>WX</a></td><td width='30'>1-14</td></tr><tr><tr bgcolor='#D9FFFF'><td colspan=7>Sunday, 24th of August 2008</td></tr><td width='110'><a href='http://www.gaainfo.com/article.php?story=20080825001&matchno=445&co=intercounty&year=2008' >All-Ireland SFC SF</a></td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_013.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=kerry' target='_top'>KY</a></td><td width='30'>1-13</td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_006.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=cork' target='_top'>C</a></td><td width='30'>3-7</td></tr><tr><tr bgcolor='#D9FFFF'><td colspan=7>Sunday, 17th of August 2008</td></tr><td width='110'><a href='http://www.gaainfo.com/article.php?story=20080818002&matchno=444&co=intercounty&year=2008' >All-Ireland SHC SF</a></td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_027.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=tipperary' target='_top'>T</a></td><td width='30'>1-18</td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_029.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=waterford' target='_top'>WD</a></td><td width='30'>1-20</td></tr><tr><tr bgcolor='#D9FFFF'><td colspan=7>Saturday, 16th of August 2008</td></tr><td width='110'><a href='http://www.gaainfo.com/article.php?story=20080817001&matchno=440&co=intercounty&year=2008' >All-Ireland SFC QF</a></td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_010.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=dublin' target='_top'>D</a></td><td width='30'>1-8</td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_028.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=tyrone' target='_top'>TY</a></td><td width='30'>3-14</td></tr><tr><tr bgcolor='#D9FFFF'><td colspan=7>Sunday, 10th of August 2008</td></tr><td width='110'><a href='http://www.gaainfo.com/article.php?story=20080811002&matchno=437&co=intercounty&year=2008' >All-Ireland SHC SF</a></td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_015.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=kilkenny' target='_top'>KK</a></td><td width='30'>1-23</td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_006.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=cork' target='_top'>C</a></td><td width='30'>0-17</td></tr><tr><td width='110'><a href='http://www.gaainfo.com/article.php?story=20080811001&matchno=441&co=intercounty&year=2008' >All-Ireland SFC QF</a></td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_006.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=cork' target='_top'>C</a></td><td width='30'>2-11</td><td width='16'><img src='http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_014.jpg' /></td><td width='20'><a href='http://www.gaainfo.com/county.php?co=kildare' target='_top'>KE</a></td><td width='30'>1-11</td></tr></table><table class="lists" cellspacing="0" border="0" width="100%"><tr><th><h4>Upcoming Inter-County Fixtures</h4></th></tr></table><table border="0" id="table4" width="100%" border=0 cellspacing=0 style="font-size: 10pt;"></table><table class="lists" cellspacing="0" border="0" width="242px" valign="top"><tr><th><h4>Subscribe to our email list</h4></th></tr></table>Enter your email address:<br><FORM ACTION="http://www.gaainfo.com/mailing/add.php" method="get"><table><tr><td><input type="text" name="address"></td><td><input type="submit" name="send" value="Add"><td></tr></table></FORM><div  align="center"><h2><a href="http://www.gaainfo.com/results.php?co=intercounty">Click here for full Inter-County Results, Fixtures and Tables</a></h2></div>		
+		<table width="242" cellspacing=0 border=0>
+		<tr><td width="120" valign="top" align="center">		
+				<!-- Show current rankings function -->
+				<table class="lists" cellspacing="0" border="0" width="120px"><tr><th><h4>Hurling Rankings</h4></th></tr><tr ><td class="list"></td></tr><tr><td class="see_all"></td></tr></table><table cellspacing="0" border="0" width="120px" ><col width=110><tr><td valign="top"><div style="overflow: auto; width: 120px; height: 264px; border-left: 0px gray solid; border-bottom: 0px gray solid; padding:0px; margin: 0px"><table width="102px" style="font-size: 10pt;" cellspacing="0" border="0"><tr bgcolor='#D9FFFF'><td width=10px>1</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_015.jpg"/></td><td width=76px>Kilkenny</td></tr><td width=10px>2</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_012.jpg"/></td><td width=76px>Galway</td></tr><tr bgcolor='#D9FFFF'><td width=10px>3</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_027.jpg"/></td><td width=76px>Tipperary</td></tr><td width=10px>4</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_006.jpg"/></td><td width=76px>Cork</td></tr><tr bgcolor='#D9FFFF'><td width=10px>5</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_029.jpg"/></td><td width=76px>Waterford</td></tr><td width=10px>6</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_005.jpg"/></td><td width=76px>Clare</td></tr><tr bgcolor='#D9FFFF'><td width=10px>7</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_010.jpg"/></td><td width=76px>Dublin</td></tr><td width=10px>8</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_024.jpg"/></td><td width=76px>Offaly</td></tr><tr bgcolor='#D9FFFF'><td width=10px>9</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_031.jpg"/></td><td width=76px>Wexford</td></tr><td width=10px>10</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_018.jpg"/></td><td width=76px>Limerick</td></tr><tr bgcolor='#D9FFFF'><td width=10px>11</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_016.jpg"/></td><td width=76px>Laois</td></tr><td width=10px>12</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_003.jpg"/></td><td width=76px>Carlow</td></tr><tr bgcolor='#D9FFFF'><td width=10px>13</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_013.jpg"/></td><td width=76px>Kerry</td></tr><td width=10px>14</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_001.jpg"/></td><td width=76px>Antrim</td></tr><tr bgcolor='#D9FFFF'><td width=10px>15</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_030.jpg"/></td><td width=76px>Westmeath</td></tr><td width=10px>16</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_014.jpg"/></td><td width=76px>Kildare</td></tr><tr bgcolor='#D9FFFF'><td width=10px>17</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_009.jpg"/></td><td width=76px>Down</td></tr><td width=10px>18</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_022.jpg"/></td><td width=76px>Meath</td></tr><tr bgcolor='#D9FFFF'><td width=10px>19</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_032.jpg"/></td><td width=76px>Wicklow</td></tr><td width=10px>20</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_046.jpg"/></td><td width=76px>London</td></tr><tr bgcolor='#D9FFFF'><td width=10px>21</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_007.jpg"/></td><td width=76px>Derry</td></tr><td width=10px>22</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_021.jpg"/></td><td width=76px>Mayo</td></tr><tr bgcolor='#D9FFFF'><td width=10px>23</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_002.jpg"/></td><td width=76px>Armagh</td></tr><td width=10px>24</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_025.jpg"/></td><td width=76px>Roscommon</td></tr><tr bgcolor='#D9FFFF'><td width=10px>25</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_020.jpg"/></td><td width=76px>Louth</td></tr><td width=10px>26</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_026.jpg"/></td><td width=76px>Sligo</td></tr><tr bgcolor='#D9FFFF'><td width=10px>27</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_008.jpg"/></td><td width=76px>Donegal</td></tr><td width=10px>28</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_023.jpg"/></td><td width=76px>Monaghan</td></tr><tr bgcolor='#D9FFFF'><td width=10px>29</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_019.jpg"/></td><td width=76px>Longford</td></tr><td width=10px>30</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_028.jpg"/></td><td width=76px>Tyrone</td></tr><tr bgcolor='#D9FFFF'><td width=10px>31</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_054.jpg"/></td><td width=76px>New York</td></tr><td width=10px>32</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_011.jpg"/></td><td width=76px>Fermanagh</td></tr><tr bgcolor='#D9FFFF'><td width=10px>33</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_048.jpg"/></td><td width=76px>Warwickshire</td></tr><td width=10px>34</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_017.jpg"/></td><td width=76px>Leitrim</td></tr><tr bgcolor='#D9FFFF'><td width=10px>35</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_004.jpg"/></td><td width=76px>Cavan</td></tr></table></div></td></tr></table><table class="lists" cellspacing="0" border="0" width="120px"><tr><th><h4>Football Rankings</h4></th></tr><tr ><td class="list"></td></tr><tr><td class="see_all"></td></tr></table><table cellspacing="0" border="0" width="120px" ><col width=110><tr><td valign="top"><div style="overflow: auto; width: 120px; height: 264px; border-left: 0px gray solid; border-bottom: 0px gray solid; padding:0px; margin: 0px"><table width="102px" style="font-size: 10pt;" cellspacing="0" border="0"><tr bgcolor='#D9FFFF'><td width=10px>1</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_006.jpg"/></td><td width=76px>Cork</td></tr><td width=10px>2</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_013.jpg"/></td><td width=76px>Kerry</td></tr><tr bgcolor='#D9FFFF'><td width=10px>3</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_021.jpg"/></td><td width=76px>Mayo</td></tr><td width=10px>4</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_010.jpg"/></td><td width=76px>Dublin</td></tr><tr bgcolor='#D9FFFF'><td width=10px>5</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_028.jpg"/></td><td width=76px>Tyrone</td></tr><td width=10px>6</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_012.jpg"/></td><td width=76px>Galway</td></tr><tr bgcolor='#D9FFFF'><td width=10px>7</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_002.jpg"/></td><td width=76px>Armagh</td></tr><td width=10px>8</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_007.jpg"/></td><td width=76px>Derry</td></tr><tr bgcolor='#D9FFFF'><td width=10px>9</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_009.jpg"/></td><td width=76px>Down</td></tr><td width=10px>10</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_022.jpg"/></td><td width=76px>Meath</td></tr><tr bgcolor='#D9FFFF'><td width=10px>11</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_023.jpg"/></td><td width=76px>Monaghan</td></tr><td width=10px>12</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_008.jpg"/></td><td width=76px>Donegal</td></tr><tr bgcolor='#D9FFFF'><td width=10px>13</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_014.jpg"/></td><td width=76px>Kildare</td></tr><td width=10px>14</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_016.jpg"/></td><td width=76px>Laois</td></tr><tr bgcolor='#D9FFFF'><td width=10px>15</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_031.jpg"/></td><td width=76px>Wexford</td></tr><td width=10px>16</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_026.jpg"/></td><td width=76px>Sligo</td></tr><tr bgcolor='#D9FFFF'><td width=10px>17</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_020.jpg"/></td><td width=76px>Louth</td></tr><td width=10px>18</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_018.jpg"/></td><td width=76px>Limerick</td></tr><tr bgcolor='#D9FFFF'><td width=10px>19</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_001.jpg"/></td><td width=76px>Antrim</td></tr><td width=10px>20</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_004.jpg"/></td><td width=76px>Cavan</td></tr><tr bgcolor='#D9FFFF'><td width=10px>21</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_027.jpg"/></td><td width=76px>Tipperary</td></tr><td width=10px>22</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_030.jpg"/></td><td width=76px>Westmeath</td></tr><tr bgcolor='#D9FFFF'><td width=10px>23</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_011.jpg"/></td><td width=76px>Fermanagh</td></tr><td width=10px>24</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_032.jpg"/></td><td width=76px>Wicklow</td></tr><tr bgcolor='#D9FFFF'><td width=10px>25</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_024.jpg"/></td><td width=76px>Offaly</td></tr><td width=10px>26</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_025.jpg"/></td><td width=76px>Roscommon</td></tr><tr bgcolor='#D9FFFF'><td width=10px>27</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_029.jpg"/></td><td width=76px>Waterford</td></tr><td width=10px>28</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_019.jpg"/></td><td width=76px>Longford</td></tr><tr bgcolor='#D9FFFF'><td width=10px>29</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_017.jpg"/></td><td width=76px>Leitrim</td></tr><td width=10px>30</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_005.jpg"/></td><td width=76px>Clare</td></tr><tr bgcolor='#D9FFFF'><td width=10px>31</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_003.jpg"/></td><td width=76px>Carlow</td></tr><td width=10px>32</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_046.jpg"/></td><td width=76px>London</td></tr><tr bgcolor='#D9FFFF'><td width=10px>33</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_054.jpg"/></td><td width=76px>New York</td></tr><td width=10px>34</td><td width=16px><img src="http://www.gaainfo.com/graphics/minicrest/00/minicrest_00_015.jpg"/></td><td width=76px>Kilkenny</td></tr></table></div></td></tr></table><div align="center"><a href="http://www.gaainfo.com/rankings/index.php" target="_top">About these Rankings</a></div>				</td><td>
+<script type="text/javascript"><!--
+google_ad_client = "pub-9102303747047618";
+/* 120x600 for front page */
+google_ad_slot = "0151576789";
+google_ad_width = 120;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+				</td></tr></table>
+				<!-- Show current news function -->
+				<table class="lists" cellspacing="0" border="0" width="242"><tr><th><h4>Galway Stories:</h4></th></tr><tr ><td class="list"></td></tr><tr><td class="see_all"></td></tr></table><table width="242px"><tr><td width="242px">&raquo;&nbsp;<a href="http://www.gaainfo.com/article.php?matchno=0&story=20100227002" target="_top">Gall's prevail in thrilling semi-final</a><br>&raquo;&nbsp;<a href="http://www.gaainfo.com/article.php?matchno=0&story=20100225006" target="_top">Kernan backs Joyce for summer return</a><br>&raquo;&nbsp;<a href="http://www.gaainfo.com/article.php?matchno=0&story=20100225003" target="_top">2010 GAA Golf Legends Charity Golf Championship</a><br>&raquo;&nbsp;<a href="http://www.gaainfo.com/article.php?matchno=0&story=20100225001" target="_top">Collins starts for Galway</a><br>&raquo;&nbsp;<a href="http://www.gaainfo.com/article.php?matchno=0&story=20100222002" target="_top">Details of re-scheduled fixtures confirmed</a><br></td></tr></table>	
+				<br>
+
+		</td>
+
+
+
+	</tr>
+</table>
+
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript" language="javascript">
+var sc_project=1834307; 
+var sc_invisible=1; 
+var sc_partition=17; 
+var sc_security="8cdf423e"; 
+</script>
+
+<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img  src="http://c18.statcounter.com/counter.php?sc_project=1834307&java=0&security=8cdf423e&invisible=1" alt="free page hit counter" border="0"></a> </noscript>
+<!-- End of StatCounter Code -->
+
+<!-- Google Analytics Code -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2326902-3";
+urchinTracker();
+</script>
+</body>
+</html>
