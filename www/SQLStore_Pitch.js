@@ -7,8 +7,14 @@ var shortName = 'clubs.db';
 var version = '1.0';
 var displayName = 'My Important Database';
 var maxSize = 65536; // in bytes
+var DEBUG_ON=0;
 		
 /*! Initialize the systemDB global variable. */
+
+function ifalert(message){
+	if (DEBUG_ON==1) alert(message);
+}
+
 function initDB()
 {
 
@@ -50,11 +56,90 @@ function getCountiesLoad(){
 		LoadCounties(myDB);
 }
 
-
+//iPhone-specific funcion to get GPS
+function getLocation()
+ {
+		try{
+			var elementId=document.getElementById('gps');
+			elementId.value="Getting GPS...";
+			if(navigator.geolocation)
+			{
+				debug.log("getLocation");
+				navigator.notification.activityStart();
+				var suc = function(p){
+					debug.log(p.coords.latitude + " " + p.coords.longitude);
+					navigator.notification.activityStop();
+					elementId.value= ""+p.coords.latitude + " " + p.coords.longitude;
+					navigator.geolocation.stop();
+				};
+				var fail = function(error){
+					navigator.notification.activityStop();
+					elementId.value="Failed to get GPS location";
+					navigator.geolocation.stop();
+				};
+				navigator.geolocation.getCurrentPosition(suc,fail);
+			}
+			else
+			{
+				elementId.value="No GPS service available.";
+			}
+		}
+		catch(b){
+			alert('Error in getLocation ' + b);
+		}
+} 
+	
+	
+//Loads the details for that Location
+function getLocationDetailLoad(){
+try{
+	var locID=GetQuerystringParam('locationid');
+	var countyID=GetQuerystringParam('countyid');
+	var countyName=GetQuerystringParam('cname');
+	ifalert('Countyname is ' + countyName);
+	ifalert('LocID is is' + locID);
+	var myDB = openDatabase(shortName, version, displayName, maxSize);
+	var SQL_STRING=" select id, Name, Crest, LatX, LatY from Location where id=" + locID + ";";
+	var buildstring='';		//init the HTML builderstring
+	var controldiv=document.getElementById('bb');
+	var row=null;
+	var xc=null;var yc=null;var locname=null;
+	
+	
+	myDB.transaction(
+		function(transaction){
+			transaction.executeSql(SQL_STRING,[],
+				function(transaction,results){
+										for (var i=0;i<results.rows.length;i++){
+												row=results.rows.item(i);
+													xc=row['LatX'];yc=row['LatY'];locname=row['Name'];
+													buildstring=buildstring+ docLinkLocs(row);
+													ifalert('xc is ' + xc);
+													$('#pitchmaplink').attr('href','pitchmap.html?xc=' +xc+'&yc='+yc+'&locid=' + locID + '&locname='+locname+'&countyid='+countyID);
+											}
+													//controldiv.innerHTML=buildstring;
+											}
+											, errorHandler);
+							}
+							
+	);
+	
+	//Set up the Link to the back page - County
+	ifalert('CountyID is ' +countyID);
+	$('#backlink').attr('href','locations.html?countyid=' + countyID);
+	$('#backlink').html("County " + countyName);
+	ifalert('CountyName is ' +countyName);
+										
+}
+catch(b){
+	alert('getLocationDetailLoad-Error :' + b);
+	}
+	
+}
 //Load the data into the county, location tables on initialisation
 function PopulateTables(myDB){
 try{
-	alert('Populate Tables');
+	ifalert('Populate Tables');
 	//INSERT the County Names
 	myDB.transaction(
 		function(transaction){
@@ -243,27 +328,32 @@ function deleteFile(id)
 
 //Loads the locations based on the CountyID
 //Builds up the innerHTL string 
+//Could load a small 50x50 crest jpg (maybe have this file cached locally in filesystem)
+//Similar to iCCPC having a different jpg for each customer...
 function getLocationsLoad(){
 try{
 	var countyid=GetQuerystringParam('countyid');
-	alert('CountyID is' + countyid);
+	ifalert('CountyID is' + countyid);
 	var myDB = openDatabase(shortName, version, displayName, maxSize);
-	var SQL_STRING=" select id, Name, LatX, LatY, Creast from Location where CountyID=" + countyid + " order by Name ;";
-	var buildstring='':		//init the HTML builderstring
+	var SQL_STRING=" select L.id, L.Name, L.Crest, L.CountyID, C.CountyName from Location L inner JOIN County C on L.CountyID=C.ID where L.CountyID=" + countyid + " order by Name ;";
+	var buildstring='';		//init the HTML builderstring
 	var controldiv=document.getElementById('bb');
 	var row=null;
 	
 	myDB.transaction(
 		function(transaction){
-			transaction.executsql(SQL_STRING,[],
+			transaction.executeSql(SQL_STRING,[],
 				function(transaction,results){
 										for (var i=0;i<results.rows.length;i++){
 												row=results.rows.item(i);
 													buildstring=buildstring+ docLinkLocs(row);
-													}
-													controldiv.innerHTML=string;
-													}
-											}, errorHandler);
+											}
+													//Do any property setting before exiting the results transaction
+													controldiv.innerHTML=buildstring;
+													$('#county').innerHTML=row['CountyName'];
+											}
+											
+											, errorHandler);
 							}
 	);
 	
@@ -276,13 +366,15 @@ catch(b){
 }
 
 //Builds up the string for innerHTML for locations.html
-unction docLinkLocs(row)
+function docLinkLocs(row)
 {
 	var name = row['Name'];
 	var location_id = row['id'];
+	var countyid=row['CountyID'];
+	var countyname=row['CountyName'];
 	//var loccount=row['LocationsCount'];
 	//we can add the counter in later, hardcode for moment...
-	return "<li class='event' id='" + location_id + "'><a id='q' href='locationdetail.html?locationid=" + location_id + "'>" + name + "<small class='counter'>88</small></a></li>\n";
+	return "<li class='event' id='" + location_id + "'><a id='q' href='locationdetail.html?locationid=" + location_id +  '&cname=' + countyname + '&countyid=' + countyid +  "'>" + name + "<small class='counter'>88</small></a></li>\n";
 	
 }
 
@@ -302,7 +394,7 @@ try{
 						    transaction.executeSql(
 												   SQL_INSERT_COUNTY,
 												   [countyname,0,0],
-												   alert('Inserted County'),
+												   ifalert('Inserted County'),
 												   errorHandler);
 						 }						 						 
 		);
@@ -328,7 +420,7 @@ try{
 						    transaction.executeSql(
 												   SQL_INSERT,
 												   [name,xcord,ycord,countyID],
-												   alert('Inserted Location'),
+												   ifalert('Inserted Location'),
 												   errorHandler);
 						 }						 						 
 		);
@@ -367,9 +459,9 @@ function saveLocation(name,xcord,ycord,countyID,locationid)
 						    transaction.executeSql(
 												   SQL_UPDATE,
 												   [name,xcord,ycord,countyID,locationid],
-												   alert('Updated'),
+												   ifalert('Updated'),
 												   errorHandler);
-						 }						 						 
+												}						 						 
 		);
 	}
 	
