@@ -11,19 +11,60 @@
 	<link rel="stylesheet" href="bundle.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 	<script language="javascript" type="text/javascript" src="SQLStore_Pitch.js"></script>
-	<script type="text/javascript" src="jqtouch/jquery.1.3.2.min.js" charset="utf-8"></script>
-    
-	<script type="text/javascript" charset="utf-8">
+	<script type="text/javascript" src="jqTouch/jquery.1.3.2.min.js" charset="utf-8"></script>
+    <style type="text/css">
+		
+		
+		.JobFileName
+		{
+			//font-size:20pt;
+			font-weight:bolder;
+		}
+		
+		.CustomerName
+		{
+		font-size:7pt;
+		//font-style:italic;
+		
+		}
+			.alternate
+			{
+				background-color: #DDDDDD;  //#99CC00 -> red
+				
+			}
+			
+			.tabled
+			{
+				font-size:16pt;
+				height:100px;
+			}
+		</STYLE>
 	
-	</script>
 </head>
  <body onload="getCountiesLoad()">
-	<div id="county">
+	<div id="container">
+		<div id="county">
+			stuff here
+		</div>
+		<div id="contentblock">
+			stuff
+		</div>
+		<div id="counties">
+			<ul class="events" id="bb">
+				<li class="event" id="entryTemplate" style="display:none">
+							<a id="q" href="some.html?someparam=">
+								<span class="CountyName" >&nbsp;&nbsp;</span><BR>
+								<span class="CountyCount">&nbsp;&nbsp;</span>
+							</a>
+				</li>
+			</ul>
+		</div>
+	
+		<div id='list2'>
+			<ul class="rounded" id="bb2">
+				<li><a href='dsf'>BLA</a></li>
+			</ul>
+		</div>
 	</div>
-	<div id="contentdiv">
-	</div>
-	<ul class="rounded" id="bb">
-		<li class="arrow" id="entrytemplate" style="display:none"><a id="q" href="locations.html">Locations div</a></li>
-	</ul>
  </body>
 </html>

@@ -7,7 +7,7 @@ var shortName = 'clubs.db';
 var version = '1.0';
 var displayName = 'My Important Database';
 var maxSize = 65536; // in bytes
-var DEBUG_ON=0;
+var DEBUG_ON=1;
 		
 /*! Initialize the systemDB global variable. */
 
@@ -52,8 +52,14 @@ PopulateTables(myDB);
 }
 
 function getCountiesLoad(){
-		var myDB = openDatabase(shortName, version, displayName, maxSize);
-		LoadCounties(myDB);
+	try{
+		ifalert('Loading counties...');
+		
+		LoadCounties();
+	}
+	catch(b){
+		alert('Error in getCountiesLoad() ' + b);
+	}
 }
 
 //iPhone-specific funcion to get GPS
@@ -332,6 +338,7 @@ function deleteFile(id)
 //Similar to iCCPC having a different jpg for each customer...
 function getLocationsLoad(){
 try{
+						  alert('loading counties');					  
 	var countyid=GetQuerystringParam('countyid');
 	ifalert('CountyID is' + countyid);
 	var myDB = openDatabase(shortName, version, displayName, maxSize);
@@ -345,15 +352,23 @@ try{
 			transaction.executeSql(SQL_STRING,[],
 				function(transaction,results){
 										for (var i=0;i<results.rows.length;i++){
-												row=results.rows.item(i);
-													buildstring=buildstring+ docLinkLocs(row);
-											}
-													//Do any property setting before exiting the results transaction
-													controldiv.innerHTML=buildstring;
-													$('#county').innerHTML=row['CountyName'];
-											}
-											
-											, errorHandler);
+												
+								   row = results.rows.item(i);
+								   //alert(i + '  '+ row['Name']);
+								   var newEntryRow=$('#entryTemplate').clone();
+								   
+								   newEntryRow.removeAttr('style');
+								   newEntryRow.attr('Id',row['id']);
+								   
+								   newEntryRow.appendTo('#locations ul');
+								   newEntryRow.find('.LocationName').text(row['Name']);
+								   //newEntryRow.find('.CountyCount').text(row['CountyCoutn']);
+								   
+								   newEntryRow.find('#q').attr('href','locationdetail.html?locationid=' + row['id'] + '&countyid=' + row['CountyID']+'&cname='+row['CountyName']);
+								   //alert('here' +i);
+								   }$('#eventslist li:nth-child(odd)').addClass('alternate');											
+								}
+								, errorHandler);
 							}
 	);
 	
@@ -568,36 +583,44 @@ catch(b)
 }
 
 /*! This prints a list of "county" to edit. */
-function LoadCounties(myDB)
+function LoadCounties()
 {
 	try
 	{
-	//alert('Loading counties');
+	alert('in: LoadCounties - Loading counties');
 	//var myDB = systemDB;
+	var myDB = openDatabase(shortName, version, displayName, maxSize);
+						  alert('Opened Database...');
 	var SQL_string="select count(*) as [LocationsCount],C.CountyName as [CountyName],C.ID as [CountyID] from County C INNER JOIN Location L on C.ID=L.CountyID group by C.CountyName, C.ID ";
 	var SQL_string_original="SELECT * from County where deleted=0";
 	myDB.transaction(
 	    function (transaction) {
 		transaction.executeSql(SQL_string,
-			[ ], // array of values for the ? placeholders
+			[ ], 
 			function (transaction, results) {
-				var string = '';
-				var controldiv = document.getElementById('bb');
+				//var buildstring = '';
+				//var controldiv = document.getElementById('content');   //ul-Element
 				for (var i=0; i<results.rows.length; i++) {
 					var row = results.rows.item(i);
-					string = string + docLink(row);
-				}
-				if (string == "") { 
-					string = "No county.<br />\n";
-				} else {
-					//string = "<ul class='edgetoedge'><li class='arrow'><a id='0' href='#locations'>BLA</a></li></ul>";
-					//string = "<ul class='rounded'>"+string+"</ul>";
-				}
-				controldiv.innerHTML=string;
+							   alert(i + '  '+ row['CountyName']);
+							   var newEntryRow=$('#entryTemplate').clone();
+							   
+							   newEntryRow.removeAttr('style');
+							   newEntryRow.attr('Id',row['CountyID']);
+							   
+							   newEntryRow.appendTo('#counties ul');
+							   newEntryRow.find('.CountyName').text(row['CountyName']);
+							   newEntryRow.find('.CountyCount').text(row['CountyCoutn']);
+							   
+							   newEntryRow.find('#q').attr('href','locations.html?countyid=' + row['CountyID']);
+							   alert('here' +i);
+							   }$('#eventslist li:nth-child(odd)').addClass('alternate');
+							   
 			}, errorHandler);
 					 }
 	); //myDB.transaction
 						 
+						  alert('loaded counties complete....');					 
 	}
 	catch(b)
 	{
@@ -614,27 +637,22 @@ function calloc(county_id){
 	jQT.goTo('#locations','flip');
 	
 }
-
-//Change this to do a call to an external mappage
-function callocdetail(locID){
-	//alert('Clicked this location ID ' + locID);
-	//Load the location detail
-	//loadlocationByID(locID);
-	//jQT.goTo('#locdetail','flip');
-	
-	//initialize();
-	//showmap(xMAP,yMAP)
-}
-
+						  
+						  
 /*! Format a link to a document for display in the "Choose a file" pane. */
 function docLink(row)
 {
+						  try{	
+						 // alert('in docLink');
 	var name = row['CountyName'];
 	var county_id = row['CountyID'];
 	var loccount=row['LocationsCount'];
 	//we can add the counter in later, hardcode for moment...
-	return "<li class='event' id='" + county_id + "'><a id='q' href='locations.html?countyid=" + county_id + "'>" + name + "<small class='counter'>" + loccount + "</small></a></li>\n";
-	
+	return "<li class='event' id='" + county_id + "'><a id='q" + county_id + "' href='locations.html?countyid=" + county_id + "'>" + name + "<small class='counter'>" + loccount + "</small></a></li>\n";
+						  }
+						  catch(b){
+						  alert('Error in docLink ' + b);
+						  }
 }
 
 /*! This prints a link to the "Create file" pane. */
