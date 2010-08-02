@@ -70,7 +70,7 @@ function getLocation()
 			elementId.value="Getting GPS...";
 			if(navigator.geolocation)
 			{
-				debug.log("getLocation");
+				//debug.log("getLocation");
 				navigator.notification.activityStart();
 				var suc = function(p){
 					debug.log(p.coords.latitude + " " + p.coords.longitude);
@@ -94,14 +94,36 @@ function getLocation()
 			alert('Error in getLocation ' + b);
 		}
 } 
-	
+
+
+
+//Use this preferred method for getting query params
+function queryParameters(urlt) {
+	var query = window.location.href;
+	var keyValuePairs = query.split(/[&?]/g);
+	var params = {};
+	for (var i = 0, n = keyValuePairs.length; i < n; ++i) {
+		var m = keyValuePairs[i].match(/^([^=]+)(?:=([\s\S]*))?/);
+		if (m) {
+			var key = decodeURIComponent(m[1]);
+			(params[key] || (params[key] = [])).push(decodeURIComponent(m[2]));
+		}
+	}
+	return params;
+}
+
+
 	
 //Loads the details for that Location
 function getLocationDetailLoad(){
 try{
+	var urlt=null;
 	var locID=GetQuerystringParam('locationid');
 	var countyID=GetQuerystringParam('countyid');
-	var countyName=GetQuerystringParam('cname');
+	var countyName=queryParameters(urlt)['cname'];
+	ifalert('Countyname is ' + countyName);
+	
+	//var countyName=GetQuerystringParam('cname');
 	ifalert('Countyname is ' + countyName);
 	ifalert('LocID is is' + locID);
 	var myDB = openDatabase(shortName, version, displayName, maxSize);
@@ -121,7 +143,7 @@ try{
 													xc=row['LatX'];yc=row['LatY'];locname=row['Name'];
 													buildstring=buildstring+ docLinkLocs(row);
 													ifalert('xc is ' + xc);
-													$('#pitchmaplink').attr('href','pitchmap.html?xc=' +xc+'&yc='+yc+'&locid=' + locID + '&locname='+locname+'&countyid='+countyID);
+													$('#pitchmaplink').attr('href','pitchmap.html?xc=' +xc+'&yc='+yc+'&locid=' + locID + '&locname='+locname+'&countyid='+countyID+'&countyname='+countyName);
 											}
 													//controldiv.innerHTML=buildstring;
 											}
@@ -286,6 +308,7 @@ function deleteUpdateResults(transaction, results)
 		chooseDialog();
 	}
 }
+
 
 
 function GetQuerystringParam(name, url) {

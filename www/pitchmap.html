@@ -5,9 +5,9 @@
 <title>Google Maps JavaScript API v3 Example: Geocoding Simple</title>
 
 		
-		<script language="javascript" type="text/javascript" src="SQLStore_Pitch.js"></script>
-		 <script type="text/javascript" src="jqTouch/jquery.1.3.2.min.js" charset="utf-8"></script>
-       
+	<script language="javascript" type="text/javascript" src="SQLStore_Pitch.js"></script>
+	<script type="text/javascript" src="jqTouch/jquery.1.3.2.min.js" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
@@ -158,18 +158,113 @@ MyOverlay.prototype.draw = function() {
 	return newtext;
   }
   
+  	function print(lat,lon)
+{
+try{
+	alert('print  ' + lat);
+	document.getElementById("location1").innerHTML = "Lat: "+lat+ " Lon: " +lon;
+	// + " TS: " + (new Date().getTime());
+	}
+	catch(b){
+	alert('Error in print () ' +b);
+	}
+}
+
+ function preventBehavior(e) { e.preventDefault(); };
+	
+	var url = "http://search.twitter.com/search.json?callback=getTweets";
+    
+	var intervalID;
+
+	function getCurrentLocation()
+	{
+		document.getElementById("location2").innerHTML = "Getting current location ...";
+		var funk = function(position)
+		{
+			document.getElementById("location2").innerHTML = "Lat: "+position.coords.latitude+ " Lon: " +position.coords.longitude;
+		};
+		
+		var fail = function(positionError)
+		{
+			if (positionError.code == PositionError.PERMISSION_DENIED) {
+				alert("Permission Denied :: "  + positionError.message);
+			} else {
+				alert("Error Code " + positionError.code + " :: "  + positionError.message);
+			}
+		}
+		navigator.geolocation.getCurrentPosition(funk,fail);
+	}
+
+function onWindowUnload()
+	{
+		
+	}
+	
+  function callback(lat, lon) 
+	{ 
+	try{
+	alert('in callback ');
+		//navigator.geolocation.stop();
+		//alert("Callback :: " + lat + "," + lon);
+		print(lat,lon);
+		
+	var geocode = "&geocode=" + lat + "%2C" + lon + "%2C100mi"; 
+	var fullUrl = url + geocode; 
+	var head = document.getElementsByTagName('head'); 
+	var script = document.createElement('script'); 
+	script.src = fullUrl; 
+	head[0].appendChild(script);
+	}
+	catch(b){
+	alert('Error in callback() ' +b);
+	} 
+}
+
+
+
+  function onDeviceReady(){
+  try{
+	alert('Device is ready now - do something...');
+	
+	    var funk = function(position)
+		{
+			callback(position.coords.latitude, position.coords.longitude); 
+		};
+		
+		var fail = function(positionError)
+		{
+			if (positionError.code == PositionError.PERMISSION_DENIED) {
+				alert("Permission Denied :: "  + positionError.message);
+			} else {
+				alert("Error Code " + positionError.code + " :: "  + positionError.message);
+			}
+		}
+
+		intervalID = navigator.geolocation.watchPosition(funk,fail);
+		
+		
+	
+		window.addEventListener("unload",onWindowUnload,false);
+		}
+		catch(b){
+		alert('Error in onDeviceReady() ' +b);
+		}
+  }
+  
   function initialize() {
   try{
   
   
-	//document.addEventListener("deviceready",onDeviceReady,false);
+	document.addEventListener("deviceready",onDeviceReady,false);
 		
 
 	//alert('initialize');
+	var urlt=null;
 	var latx=GetQuerystringParam("xc");
 	var laty=GetQuerystringParam("yc");
 	var locid=GetQuerystringParam("locid");
-	var locname=GetQuerystringParam("locname");
+	var locname=queryParameters(urlt)['locname'];
+	var countyname=queryParameters(urlt)['countyname'];
 	var countyID=GetQuerystringParam("countyid");
 	
     //alert(add);
@@ -198,7 +293,7 @@ MyOverlay.prototype.draw = function() {
 	
 	$('#backlink').attr('href','locationdetail.html?locationid=' + locid+'&countyid='+countyID);
 	//$('#stepdirslink').attr('href','pitchmapdirs.html
-	$('#end').val(locname);
+	$('#end').val(locname +', Co. '+countyname);
 	ifalert(locname);
 	
 	}
@@ -330,7 +425,9 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<body style="margin:0px; padding:0px;" onload="initialize()">
+<body id="stage" style="margin:0px; padding:0px;" onload="initialize()">
+<div class="item" style="text-align:center;" id="location1">Getting your current location ...</div>
+		
   <div>
   <BR>
 	&nbsp;<a href="" id="backlink"><input id="backbutton" type="button" value="Back"/></a><BR><P>
