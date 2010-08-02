@@ -18,22 +18,26 @@
   var directionsService = new google.maps.DirectionsService();
   var pitchlocation=null;
   var yourcurrentposition=null;
+  var bounds=null;
+  var directionsDisplay;
   
 
   
   
- 	  
+//Displays your current position (lat,lon) 	  
 function print(lat,lon)
 {
 try{
 	//alert('print  ' + lat);
-	document.getElementById("location1").innerHTML = "Lat: "+lat+ " Lon: " +lon;
+	//document.getElementById("location1").innerHTML = "Lat: "+lat+ " Lon: " +lon;
 	yourcurrentposition=new google.maps.LatLng(lat,lon);
 	marker=new google.maps.Marker({
 		position:yourcurrentposition,
 		map:map
 		});
-	map.setCenter(yourcurrentposition);
+	//map.setCenter(yourcurrentposition);
+	//bounds.extend(yourcurrentposition);
+	//map.fitBounds(bounds);
 	}
 	catch(b){
 	alert('Error in print () ' +b);
@@ -60,13 +64,14 @@ function onWindowUnload()
 		//navigator.geolocation.stop();
 		//alert("Callback :: " + lat + "," + lon);
 		print(lat,lon);
-		
-	var geocode = "&geocode=" + lat + "%2C" + lon + "%2C100mi"; 
-	var fullUrl = url + geocode; 
-	var head = document.getElementsByTagName('head'); 
-	var script = document.createElement('script'); 
-	script.src = fullUrl; 
-	head[0].appendChild(script);
+	
+		//DOES THE TWEET STUFF	
+	//var geocode = "&geocode=" + lat + "%2C" + lon + "%2C100mi"; 
+	//var fullUrl = url + geocode; 
+	//var head = document.getElementsByTagName('head'); 
+	//var script = document.createElement('script'); 
+	//script.src = fullUrl; 
+	//head[0].appendChild(script);
 	}
 	catch(b){
 	alert('Error in callback() ' +b);
@@ -104,6 +109,8 @@ function onWindowUnload()
 		}
   }
   
+  
+  //Renders the map and displays the pitch location
   function initialize() {
   try{
   
@@ -111,7 +118,7 @@ function onWindowUnload()
 	document.addEventListener("deviceready",onDeviceReady,false);
 		
 
-	alert('initialize');
+	//alert('initialize');
 	var urlt=null;
 	var latx=GetQuerystringParam("xc");
 	var laty=GetQuerystringParam("yc");
@@ -119,6 +126,8 @@ function onWindowUnload()
 	var locname=queryParameters(urlt)['locname'];
 	var countyname=queryParameters(urlt)['countyname'];
 	var countyID=GetQuerystringParam("countyid");
+	
+	//bounds=new google.maps.LatLngBounds();
 	
     //alert(add);
 	//$("#address").val(add);
@@ -135,19 +144,21 @@ function onWindowUnload()
 		mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	map.setCenter(pitchlocation);
 	
+	//Creates a Display Panel
 	directionsDisplay.setMap(map);
-	directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+	//directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 
 	marker=new google.maps.Marker({
 		position:pitchlocation,
 		map:map
 		});
 	
+	//bounds.extend(pitchlocation);
+	
 	$('#backlink').attr('href','locationdetail.html?locationid=' + locid+'&countyid='+countyID);
-	//$('#stepdirslink').attr('href','pitchmapdirs.html
 	$('#end').val(locname +', Co. '+countyname);
-	//ifalert(locname);
 	
 	}
 	
@@ -156,6 +167,7 @@ function onWindowUnload()
 	}
   }
   
+ //Plots the route from yourcurrentposition to pitchlocation and builds the steps in the DisplayPanel   
  function calcRoute() {
  try{
 		
@@ -164,17 +176,18 @@ function onWindowUnload()
 		
 		//var end = document.getElementById("end").value;
 		var request = {
-			//origin:start,
 			origin:yourcurrentposition,
 			destination:pitchlocation,
 			travelMode: google.maps.DirectionsTravelMode.DRIVING
 		};
+		
 		directionsService.route(request, function(response, status) {
 		  if (status == google.maps.DirectionsStatus.OK) {
 			directionsDisplay.setDirections(response);
 			
 		  }
 		});
+		//map.setCenter(yourcurrentposition);
 	}
 catch(b){
 	alert('calcRoute() error ' + b);
@@ -270,7 +283,9 @@ h2.active {background-position: left bottom;}
 	border: 1px solid #ccc;
 }
 </style>
+<!--
 <script type="text/javascript">
+
 $(document).ready(function(){
 	
 	$(".toggle_container").hide();
@@ -281,10 +296,16 @@ $(document).ready(function(){
 
 });
 </script>
+-->
 </head>
 <body id="stage" style="margin:0px; padding:0px;" onload="initialize()">
+<div>
+<input type="button" value="Route" onclick="calcRoute();"/><P>
+	</div>
+<!--
 <div class="item" style="text-align:center;" id="location1">Getting your current location ...</div>
-		
+-->
+	<!--	
   <div>
   <BR>
 	&nbsp;<a href="" id="backlink"><input id="backbutton" type="button" value="Back"/></a><BR><P>
@@ -294,6 +315,8 @@ $(document).ready(function(){
 	<a href='#' id="stepdirslink"><input type="Button" value="Directions"/></a>
 	<input id="gps" type="button" value="GPS" onclick="getLocation();"/>
   </div>
+  -->
+  <!--
   <div class="container">
 		<h2 class="trigger"><a href="#">Directions</a></h2>
 		<div class="toggle_container">
@@ -302,7 +325,9 @@ $(document).ready(function(){
 			</div>
 		</div>
   </div>
+  
   <BR>
-  <div id="map_canvas" style="float:left;width:90%; height:90%"></div>	
+  -->
+  <div id="map_canvas" style="width:100%; height:100%"></div>	
 </body>
 </html>

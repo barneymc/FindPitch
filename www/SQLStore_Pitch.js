@@ -7,7 +7,7 @@ var shortName = 'clubs.db';
 var version = '1.0';
 var displayName = 'My Important Database';
 var maxSize = 65536; // in bytes
-var DEBUG_ON=1;
+var DEBUG_ON=0;
 		
 /*! Initialize the systemDB global variable. */
 
