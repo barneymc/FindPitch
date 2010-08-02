@@ -121,11 +121,11 @@ try{
 	var locID=GetQuerystringParam('locationid');
 	var countyID=GetQuerystringParam('countyid');
 	var countyName=queryParameters(urlt)['cname'];
-	ifalert('Countyname is ' + countyName);
+	//ifalert('Countyname is ' + countyName);
 	
 	//var countyName=GetQuerystringParam('cname');
-	ifalert('Countyname is ' + countyName);
-	ifalert('LocID is is' + locID);
+	//ifalert('Countyname is ' + countyName);
+	//ifalert('LocID is is' + locID);
 	var myDB = openDatabase(shortName, version, displayName, maxSize);
 	var SQL_STRING=" select id, Name, Crest, LatX, LatY from Location where id=" + locID + ";";
 	var buildstring='';		//init the HTML builderstring
@@ -142,7 +142,7 @@ try{
 												row=results.rows.item(i);
 													xc=row['LatX'];yc=row['LatY'];locname=row['Name'];
 													buildstring=buildstring+ docLinkLocs(row);
-													ifalert('xc is ' + xc);
+													//ifalert('xc is ' + xc);
 													$('#pitchmaplink').attr('href','pitchmap.html?xc=' +xc+'&yc='+yc+'&locid=' + locID + '&locname='+locname+'&countyid='+countyID+'&countyname='+countyName);
 											}
 													//controldiv.innerHTML=buildstring;
@@ -153,10 +153,10 @@ try{
 	);
 	
 	//Set up the Link to the back page - County
-	ifalert('CountyID is ' +countyID);
+	//ifalert('CountyID is ' +countyID);
 	$('#backlink').attr('href','locations.html?countyid=' + countyID);
 	$('#backlink').html("County " + countyName);
-	ifalert('CountyName is ' +countyName);
+	//ifalert('CountyName is ' +countyName);
 										
 }
 catch(b){
@@ -610,7 +610,7 @@ function LoadCounties()
 {
 	try
 	{
-	alert('in: LoadCounties - Loading counties');
+	//alert('in: LoadCounties - Loading counties');
 	//var myDB = systemDB;
 	var myDB = openDatabase(shortName, version, displayName, maxSize);
 						  alert('Opened Database...');
@@ -625,7 +625,7 @@ function LoadCounties()
 				//var controldiv = document.getElementById('content');   //ul-Element
 				for (var i=0; i<results.rows.length; i++) {
 					var row = results.rows.item(i);
-							   alert(i + '  '+ row['CountyName']);
+							   //alert(i + '  '+ row['CountyName']);
 							   var newEntryRow=$('#entryTemplate').clone();
 							   
 							   newEntryRow.removeAttr('style');
@@ -636,7 +636,7 @@ function LoadCounties()
 							   newEntryRow.find('.CountyCount').text(row['CountyCoutn']);
 							   
 							   newEntryRow.find('#q').attr('href','locations.html?countyid=' + row['CountyID']);
-							   alert('here' +i);
+							   //alert('here' +i);
 							   }$('#eventslist li:nth-child(odd)').addClass('alternate');
 							   
 			}, errorHandler);

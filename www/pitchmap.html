@@ -16,154 +16,24 @@
   var map;
   var directionDisplay;
   var directionsService = new google.maps.DirectionsService();
+  var pitchlocation=null;
+  var yourcurrentposition=null;
+  
 
   
-  function initializeiphone(){
-	//Call the webservice for this QuoteFileID
-	//var latlng = new google.maps.LatLng(-34.397, 150.644);
-	//var myOptions = {
-	//	  zoom: 8,
-	//	  center: latlng,
-	//	  mapTypeId: google.maps.MapTypeId.ROADMAP
-	//	}
-	//geocoder = new google.maps.Geocoder();
-    //map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-	try{
-	alert('initializeiPhone');
-		var qid=GetQuerystringParam("qid");
-	
-	
-          alert(qid);
-          var odata="{'QuoteFileID':" + qid + "}";
-           //alert(odata);
-          //Call the webservice
-          $.ajax({
-                 type: "POST",
-                 url: "http://pit-cs-m901.ingerrand.com/IR2/Service1.asmx/GetShipAddressForQuote",
-                 data: odata,
-                 contentType: "application/json; charset=utf-8",
-                 dataType: "json",
-                 success: function(msg) {
-                     LoadShipAddressSucceeded(msg);
-                 },
-                 error:AjaxFailedShipAddress
-
-             });
-			 
-			 //Display the address in the map
-			//var dbaddress="ST THOMAS ROAD,	SOUTH WIGSTON,LEICESTER,LE18 4TA";
-			//$("#address").val(dbaddress);
-		}
-		catch(b){
-			alert('Error in initializeiPhone ' + b);
-		}
-    }
-	
-function MyOverlay(options) {
-    this.setValues(options);
-
-    var div = this.div_= document.createElement('div');
-
-    div.className = "overlay";
-};
-
-// MyOverlay is derived from google.maps.OverlayView
-MyOverlay.prototype = new google.maps.OverlayView;
-
-MyOverlay.prototype.onAdd = function() {
-
-    var pane = this.getPanes().overlayLayer;
-    pane.appendChild(this.div_);
-
-}
-
-MyOverlay.prototype.onRemove = function() {
-    this.div_.parentNode.removeChild(this.div_);
-}
-
-MyOverlay.prototype.draw = function() {
-    var projection = this.getProjection();
-    var position = projection.fromLatLngToDivPixel(this.getMap().getCenter());
-
-    var div = this.div_;
-    div.style.left = position.x + 'px';
-    div.style.top = position.y + 'px';
-    div.style.display = 'block';
-};
-		
- function moveMarker() {
-						
-						var OverLayMap = new MyOverlay({map:map});
-						var Dublin=new google.maps.LatLng(52.00000,-8.00000);
-						var Galway=new google.maps.LatLng(51,-8);
-						marker=new google.maps.Marker({
-							position:Dublin,
-							map:OverLayMap
-							});
-							
-						marker=new google.maps.Marker({
-							position:Galway,
-							map:OverLayMap
-							});	
-						//Add marker in Dublin
-						
-						
-						//map.setCenter(Dublin);
-						
-                        //var p1 = map.fromLatLngToDivPixel(marker.getLatLng());
-						var p1 = OverLayMap.fromLatLngToDivPixel(Galway);
-                        var p2 = OverLayMap.fromLatLngToDivPixel(Dublin);
-                        var deltaPixels = Math.abs(p2.y - p1.y);
-                        var step = Math.floor(deltaPixels/ 10);
-                        var newLatLng = OverLayMap.fromDivPixelToLatLng(new GPoint(p1.x,p1.y+step));
-                        marker.setLatLng(newLatLng)
-
-                        if (deltaPixels - step > step) {
-                                window.setTimeout("moveMarker()",200);
-                          }
-
-                } 
-				
-
-  //Get the ShipAddress from the JSON returned from the WebService
-  function LoadShipAddressSucceeded(result){
-  try{
-  alert('LoadShipAddressSucceeded' + result.d);
-	var dbaddress=result.d;
-	var cleanaddress=TidyJSONString(dbaddress);
-	$("#address").val(cleanaddress);
-	codeAddress();
-	// onActivityBtn();
-	}
-	catch(b){
-		alert('Error in LoadShipAddressSucceeded ' + b);
-	}
-  }
   
-  //Use this function to tidy up the address returned from JSON web service
-  function TidyJSONString(stringval){
-	var newtext="";
-	for (var i=0;i< stringval.length;i++){
-		var c=stringval.charCodeAt(i);
-		var d=stringval.charAt(i);
-		if	(	(c !=91) && 		
-				(c !=93) &&		
-				(c !=34) &&		
-				(c !=32)	
-			) {newtext+=d;		//Check for [,],"" and blankspace and ignore these
-				}
-			
-	
-	}	
-	return newtext;
-  }
-  
-  	function print(lat,lon)
+ 	  
+function print(lat,lon)
 {
 try{
-	alert('print  ' + lat);
+	//alert('print  ' + lat);
 	document.getElementById("location1").innerHTML = "Lat: "+lat+ " Lon: " +lon;
-	// + " TS: " + (new Date().getTime());
+	yourcurrentposition=new google.maps.LatLng(lat,lon);
+	marker=new google.maps.Marker({
+		position:yourcurrentposition,
+		map:map
+		});
+	map.setCenter(yourcurrentposition);
 	}
 	catch(b){
 	alert('Error in print () ' +b);
@@ -176,24 +46,7 @@ try{
     
 	var intervalID;
 
-	function getCurrentLocation()
-	{
-		document.getElementById("location2").innerHTML = "Getting current location ...";
-		var funk = function(position)
-		{
-			document.getElementById("location2").innerHTML = "Lat: "+position.coords.latitude+ " Lon: " +position.coords.longitude;
-		};
-		
-		var fail = function(positionError)
-		{
-			if (positionError.code == PositionError.PERMISSION_DENIED) {
-				alert("Permission Denied :: "  + positionError.message);
-			} else {
-				alert("Error Code " + positionError.code + " :: "  + positionError.message);
-			}
-		}
-		navigator.geolocation.getCurrentPosition(funk,fail);
-	}
+	
 
 function onWindowUnload()
 	{
@@ -203,7 +56,7 @@ function onWindowUnload()
   function callback(lat, lon) 
 	{ 
 	try{
-	alert('in callback ');
+	//alert('in callback ');
 		//navigator.geolocation.stop();
 		//alert("Callback :: " + lat + "," + lon);
 		print(lat,lon);
@@ -224,7 +77,7 @@ function onWindowUnload()
 
   function onDeviceReady(){
   try{
-	alert('Device is ready now - do something...');
+	//alert('Device is ready now - do something...');
 	
 	    var funk = function(position)
 		{
@@ -258,7 +111,7 @@ function onWindowUnload()
 	document.addEventListener("deviceready",onDeviceReady,false);
 		
 
-	//alert('initialize');
+	alert('initialize');
 	var urlt=null;
 	var latx=GetQuerystringParam("xc");
 	var laty=GetQuerystringParam("yc");
@@ -273,7 +126,7 @@ function onWindowUnload()
 	
 	//If we remove this line will it stop initializeing at this LatLng?
     //var latlng = new google.maps.LatLng(-34.397, 150.644);
-	var pitchlocation=new google.maps.LatLng(latx,laty);
+	pitchlocation=new google.maps.LatLng(latx,laty);
 	directionsDisplay = new google.maps.DirectionsRenderer();
 
 	var myOptions = {
@@ -294,7 +147,7 @@ function onWindowUnload()
 	$('#backlink').attr('href','locationdetail.html?locationid=' + locid+'&countyid='+countyID);
 	//$('#stepdirslink').attr('href','pitchmapdirs.html
 	$('#end').val(locname +', Co. '+countyname);
-	ifalert(locname);
+	//ifalert(locname);
 	
 	}
 	
@@ -305,11 +158,15 @@ function onWindowUnload()
   
  function calcRoute() {
  try{
-		var start = document.getElementById("start").value;
-		var end = document.getElementById("end").value;
+		
+		//var start = document.getElementById("start").value;
+		//alert('Lat ' + lat + ', Lon  ' + lon);
+		
+		//var end = document.getElementById("end").value;
 		var request = {
-			origin:start, 
-			destination:end,
+			//origin:start,
+			origin:yourcurrentposition,
+			destination:pitchlocation,
 			travelMode: google.maps.DirectionsTravelMode.DRIVING
 		};
 		directionsService.route(request, function(response, status) {
