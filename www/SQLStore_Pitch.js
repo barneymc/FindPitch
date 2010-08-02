@@ -23,7 +23,7 @@ try {
     if (!window.openDatabase) {
         alert('not supported');
     } else {
-		alert('Opening database file');
+		ifalert('Opening database file');
         
         var myDB = openDatabase(shortName, version, displayName, maxSize);
 		systemDB = myDB;
@@ -361,7 +361,7 @@ function deleteFile(id)
 //Similar to iCCPC having a different jpg for each customer...
 function getLocationsLoad(){
 try{
-						  alert('loading counties');					  
+						  ifalert('loading counties');					  
 	var countyid=GetQuerystringParam('countyid');
 	ifalert('CountyID is' + countyid);
 	var myDB = openDatabase(shortName, version, displayName, maxSize);
@@ -613,7 +613,7 @@ function LoadCounties()
 	//alert('in: LoadCounties - Loading counties');
 	//var myDB = systemDB;
 	var myDB = openDatabase(shortName, version, displayName, maxSize);
-						  alert('Opened Database...');
+						  ifalert('Opened Database...');
 	var SQL_string="select count(*) as [LocationsCount],C.CountyName as [CountyName],C.ID as [CountyID] from County C INNER JOIN Location L on C.ID=L.CountyID group by C.CountyName, C.ID ";
 	var SQL_string_original="SELECT * from County where deleted=0";
 	myDB.transaction(
@@ -643,7 +643,7 @@ function LoadCounties()
 					 }
 	); //myDB.transaction
 						 
-						  alert('loaded counties complete....');					 
+						  ifalert('loaded counties complete....');					 
 	}
 	catch(b)
 	{

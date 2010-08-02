@@ -33,6 +33,8 @@ try{
 	yourcurrentposition=new google.maps.LatLng(lat,lon);
 	marker=new google.maps.Marker({
 		position:yourcurrentposition,
+		title:'You are here',
+		icon:'car.png',
 		map:map
 		});
 	//map.setCenter(yourcurrentposition);
@@ -152,6 +154,8 @@ function onWindowUnload()
 
 	marker=new google.maps.Marker({
 		position:pitchlocation,
+		title:"Pitch",
+		icon:'football.png',
 		map:map
 		});
 	
