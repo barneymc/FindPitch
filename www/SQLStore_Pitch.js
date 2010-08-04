@@ -10,6 +10,7 @@ var maxSize = 65536; // in bytes
 var DEBUG_ON=0;
 
 /*! Initialize the systemDB global variable. */
+/* This comment is in v0.82 */
 
 function ifalert(message){
 	if (DEBUG_ON==1) alert(message);
