@@ -8,7 +8,7 @@
 
     <title>WhereDat</title>
 	<!--<link rel="stylesheet" href="themes/jqt/theme.min.css" type="text/css" media="screen" title="no title" charset="utf-8">-->
-	<link rel="stylesheet" href="bundle.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="iui.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 	<script language="javascript" type="text/javascript" src="SQLStore_Pitch.js"></script>
 	<script type="text/javascript" src="jqTouch/jquery.1.3.2.min.js" charset="utf-8"></script>
@@ -18,14 +18,15 @@
 	</script>
 </head>
  <body onload="getLocationDetailLoad()">
-	<div id="county">
-		<a href="#" id="backlink">County</a>
+	<div id="toolbar" class="toolbar">
+		<h1 id="pageTitle">Club Details</h1>
+		<a href='counties.html' id="backlink">County</a>
 	</div>
 	<div id="contentdiv">
 	
 	</div>
-	<ul class="rounded" id="bb">
-		<li class="arrow"><a id="pitchmaplink" href="locationdetail.html">Locations div</a></li>
+	<ul selected="true" id="bb">
+		<li><a id="pitchmaplink" href="locationdetail.html">Map</a></li>
 	</ul>
  </body>
 </html>

@@ -7,7 +7,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
     <title>WhereDat</title>
-	<link rel="stylesheet" href="themes/jqt/theme.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="iui.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<!--
 	<link rel="stylesheet" href="bundle.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	-->
@@ -18,19 +18,26 @@
 	<script type="text/javascript" charset="utf-8">
 	
 	</script>
+	<style type="text/css">
+		.alternate
+			{
+				background-color: #DDDDDD;  //#99CC00 -> red
+				
+			}
+
+	</style>
 </head>
  <body onload="getLocationsLoad()">
-	<div id="county">
+ <div id="toolbar" class="toolbar">
+		<h1 id="pageTitle">Clubs</h1>
 		<a href='counties.html' id="backlink">County</a>
 	</div>
-	<div id="locations">
-	<ul class="rounded" id="bb">
-				<li class="arrow" id="entryTemplate" style="display:none">
+	<ul title="bb" selected="true" id="bb">
+				<li id="entryTemplate" style="display:none">
 							<a id="q" href="some.html?someparam=">
 								<span class="LocationName" >&nbsp;&nbsp;</span><BR>
 							</a>
 				</li>
-			</ul>
-	</div>
+	</ul>	
  </body>
 </html>

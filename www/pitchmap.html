@@ -141,7 +141,7 @@ function onWindowUnload()
 	directionsDisplay = new google.maps.DirectionsRenderer();
 
 	var myOptions = {
-		zoom: 10,
+		zoom: 9,
 		center: pitchlocation,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
     }
@@ -305,7 +305,7 @@ $(document).ready(function(){
 <body id="stage" style="margin:0px; padding:0px;" onload="initialize()">
 <div>
 <input type="button" value="Route" onclick="calcRoute();"/><P>
-	</div>
+</div>
 <!--
 <div class="item" style="text-align:center;" id="location1">Getting your current location ...</div>
 -->
@@ -332,6 +332,8 @@ $(document).ready(function(){
   
   <BR>
   -->
+  
   <div id="map_canvas" style="width:100%; height:100%"></div>	
+  
 </body>
 </html>

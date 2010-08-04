@@ -7,7 +7,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
     <title>WhereDat</title>
-	<link rel="stylesheet" href="themes/jqt/theme.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="iui.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	
 	<!--
 	<link rel="stylesheet" href="bundle.css" type="text/css" media="screen" title="no title" charset="utf-8">
@@ -45,18 +45,18 @@
 	
 </head>
  <body onload="getCountiesLoad()">
-	<div id="container">
-		
-		<div id="counties">
-			<ul class="rounded" id="bb">
-				<li class="arrow" id="entryTemplate" style="display:none">
+	<div id="toolbar" class="toolbar">
+		<h1 id="pageTitle">Counties</h1>
+	</div>
+	
+	<ul title="counties" selected="true" id="counties">
+				<li id="entryTemplate" style="display:none">
 							<a id="q" href="some.html?someparam=">
 								<span class="CountyName" >&nbsp;&nbsp;</span><BR>
 								<span class="CountyCount">&nbsp;&nbsp;</span>
 							</a>
 				</li>
-			</ul>
-		</div>
-	</div>
+	</ul>
+	
  </body>
 </html>

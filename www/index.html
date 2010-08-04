@@ -7,7 +7,10 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     
 	<title>WhereDat</title>
+	<link rel="stylesheet" href="iui.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<!--
     <link rel="stylesheet" href="themes/jqt/theme.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	--!>
 	<!--
 	<link rel="stylesheet" href="bundle.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	-->
@@ -41,19 +44,12 @@
     </script>
   </head>
   <body onload="getIndexLoad()">
-  	<div id="container">
-		
+    <div id="toolbar" class="toolbar">
+		<h1 id="pageTitle">WhereDat</h1>
 	</div>
-	<div id="content">
-				<div class="toolbar">
-					<h1>Search</h1>
-					<a id="backbutton" class="button back" href="#settings">&nbsp;</a>
-					<!--<a class="button flip" href="#settings">Settings</a>-->
-				</div>
-	</div>
-	<ul class="rounded" id="eventslist">
-		<li class="arrow"><a href="counties.html" id="countieslink">Counties</a></li>
-		<li class="arrow"><a href="geolocation.html" id="searchlink">Search</a></li>
+  	<ul title="Main" selected="true">
+		<li><a class="digg-count"></a><a href="counties.html" id="countieslink">Counties</a></li>
+		<li><a class="digg-count"></a><a href="geolocation.html" id="searchlink">Search</a></li>
 	</ul>
   </body>
 </html>
