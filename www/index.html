@@ -1,23 +1,36 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML>
 <html>
   <head>
 	<!-- Change this if you want to allow scaling -->
-    <meta name="viewport" content="width=320; user-scalable=no" />
+    <!--<meta name="viewport" content="width=320; user-scalable=no" />
 
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    
+    -->
 	<title>WhereDat</title>
+	<!--
 	<link rel="stylesheet" href="iui.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    -->
+  <!-- Seem to require the jqTouch css file for tap to work -->
+  <!--
+	<link rel="stylesheet" href="jqTouch/jqtouch.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+-->
 	<!--
-    <link rel="stylesheet" href="themes/jqt/theme.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	--!>
-	<!--
-	<link rel="stylesheet" href="bundle.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	-->
-	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script> 
+	<link rel="stylesheet" href="themes/jqt/theme.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		-->
+	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	<script type="text/javascript" charset="utf-8" src="navigationBar.js"></script>
+	
+	<!-- Load the data in the index.html file only...-->
+	<script language="javascript" type="text/javascript" src="loaddata.js"></script>
+	
 	<script language="javascript" type="text/javascript" src="SQLStore_Pitch.js"></script>
 	<script type="text/javascript" src="jqTouch/jquery.1.3.2.min.js" charset="utf-8"></script>
-
+	<script type="text/javascript" src="jqTouch/jqtouch.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<!-- Load kilo : required for the tap events only now -->
+    <script type="text/javascript" src="kilo.js" charset="utf-8"></script>
+	<script type="text/javascript" src="EmailComposer.js" charset="utf-8"></script>
+      
 	<script type="text/javascript" charset="utf-8">
 
 	// If you want to prevent dragging, uncomment this section
@@ -33,23 +46,78 @@
 	{
 		//document.addEventListener("deviceready",onDeviceReady,false);
 		initDB();
+		tryme();
+		
 	}
 	
-	/* When this function is called, PhoneGap has been initialized and is ready to roll */
+	function loadBar(){
+	try{
+		UIControls.prototype.createNavigationBar();
+		UIControls.prototype.setNavigationBarTitle('Testy3');
+		UIControls.prototype.setNavigationBarLeftButton("label","buttonType",2,"stuff");
+	//UIControls.prototype.setNavigationBarLeftButton(uiB,navigationButton.SystemItemStop);
+
+
+		
+	}
+	
+	catch(b){
+		alert('Error on loadBar '+b);
+	}
+	
+	}
+	
+		function loadVC2(){
+	try{
+	  //var htmlstring="<div><input type='button' value='TESTING'/></div>";
+	  
+	    // PhoneGap.exec("ChildBrowserCommand.showWebPage","http://www.google.com");
+		 PhoneGap.exec("ChildBrowserCommand.showMap","http://www.google.com",52.8,-8.9,"Ennis","Eire Og Pitch");
+		 //var uiE=EmailComposer.prototype.showEmailComposer(subject='TTT',body=htmlstring,toRecipients='brendan.mcardle@gmail.com',ccRecipients='',bccRecipients='',bIsHTML='true');
+		 
+		//PhoneGap.exec("TestPlug.openVC2",1,2,3,11);
+	}
+		catch(b){
+		alert('Error in loadVC2() '+b);
+		}
+	}
+	
+	function onWinLoad()
+	{
+			document.addEventListener("deviceready",onDeviceReady,false);
+	}
+	
 	function onDeviceReady()
 	{
+	try{
+		//debug.log('BMCA - Starting onDeviceReady()');
+		//PhoneGap.exec("TestPlug.addThemUp",1,2,3,11);
+		//PhoneGap.exec("TestPlug.openVC2",1,2,3,11);
+		//alert('The answer NOOW - is ' + PhoneGap.exec("TestPlug.addThemUp",1,2,3,11));
+		//var uiB=UIControls.prototype.createNavigationBar();
+		//UIControls.prototype.setNavigationBarTitle('Testy');
+		//UIControls.prototype.setNavigationBarLeftButton(navigationButton.SystemItemStop);
+		
+		}
+		catch(b){
+		alert('Error in onDeviceReady ' +b);
+		}
 		// do your thing!
 	}
     
     </script>
   </head>
-  <body onload="getIndexLoad()">
+  <body onload="onWinLoad();loadBar();initDB()">
     <div id="toolbar" class="toolbar">
 		<h1 id="pageTitle">WhereDat</h1>
 	</div>
+	<div>
+		<input type="button" value="load-Plugin-Test" onclick="loadMap('',52.8,-8.9,'EnnisT','Eire OgT');"/>
+	</div>
   	<ul title="Main" selected="true">
-		<li><a class="digg-count"></a><a href="counties.html" id="countieslink">Counties</a></li>
-		<li><a class="digg-count"></a><a href="geolocation.html" id="searchlink">Search</a></li>
+		<li><a href="counties.html" id="countieslink">Counties</a></li>
+		<li><a href="geolocation.html" id="searchlink">Search</a></li>
+		<li><a href="counties.html" id="testtap">Tap Link</a></li>
 	</ul>
   </body>
 </html>

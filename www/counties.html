@@ -12,9 +12,14 @@
 	<!--
 	<link rel="stylesheet" href="bundle.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	-->
+	<!--
 	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-	<script language="javascript" type="text/javascript" src="SQLStore_Pitch.js"></script>
-	<script type="text/javascript" src="jqTouch/jquery.1.3.2.min.js" charset="utf-8"></script>
+	-->
+	
+	<!--<script language="javascript" type="text/javascript" src="SQLStore_Pitch.js"></script>-->
+	<!--<script type="text/javascript" src="jqTouch/jquery.1.3.2.min.js" charset="utf-8"></script>-->
+	
+
     <style type="text/css">
 		
 		
@@ -44,11 +49,15 @@
 		</STYLE>
 	
 </head>
+<!--
  <body onload="getCountiesLoad()">
+-->
+<body>
 	<div id="toolbar" class="toolbar">
 		<h1 id="pageTitle">Counties</h1>
 	</div>
-	
+	<a href="index.html">Back</a>
+	<!-- ORIGINAL DIGG CODE
 	<ul title="counties" selected="true" id="counties">
 				<li id="entryTemplate" style="display:none">
 							<a id="q" href="some.html?someparam=">
@@ -56,6 +65,13 @@
 								<span class="CountyCount">&nbsp;&nbsp;</span>
 							</a>
 				</li>
+	</ul>
+	-->
+	<ul title="counties1" selected="true" id="counties1">
+		<li id="1"><a id="q" href="locations.html?countyid=1">Clare1</a></li>
+		<li id="2"><a id="q" href="locations.html?countyid=2">Galway</a></li>
+		<li id="3"><a id="q" href="locations.html?countyid=3">Limerick</a></li>
+		
 	</ul>
 	
  </body>
