@@ -10,7 +10,7 @@
 	<!--
 	<link rel="stylesheet" href="iui.css" type="text/css" media="screen" title="no title" charset="utf-8">
     -->
-  <!-- Seem to require the jqTouch css file for tap to work -->
+	    <!-- Seem to require the jqTouch css file for tap to work -->
   <!--
 	<link rel="stylesheet" href="jqTouch/jqtouch.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
 -->
@@ -105,19 +105,41 @@
 		// do your thing!
 	}
     
+	function PictureSourceType() {};
+PictureSourceType.PHOTO_LIBRARY = 0;
+PictureSourceType.CAMERA = 1;
+ 
+function getPicture(sourceType)
+{
+     var options = { quality: 10 };
+     if (sourceType != undefined) {
+          options["sourceType"] = sourceType;
+     }
+     // if no sourceType specified, the default is CAMERA 
+     navigator.camera.getPicture(getPicture_Success, null, options);
+};
+ 
+function getPicture_Success(imageData)
+{
+         alert("getpic success");
+        document.getElementById("test_img").src = "data:image/jpeg;base64," + imageData;
+}
+ 
     </script>
   </head>
   <body onload="onWinLoad();loadBar();initDB()">
     <div id="toolbar" class="toolbar">
 		<h1 id="pageTitle">WhereDat</h1>
+	
 	</div>
 	<div>
-		<input type="button" value="load-Plugin-Test" onclick="loadMap('',52.8,-8.9,'EnnisT','Eire OgT');"/>
+	<button onclick="getPicture()">From Camera</button>
+<button onclick="getPicture(PictureSourceType.PHOTO_LIBRARY)">From Photo Library</button>
 	</div>
+	<img style="width:60px;height:60px" id="test_img" src="" /> 
   	<ul title="Main" selected="true">
 		<li><a href="counties.html" id="countieslink">Counties</a></li>
 		<li><a href="geolocation.html" id="searchlink">Search</a></li>
-		<li><a href="counties.html" id="testtap">Tap Link</a></li>
 	</ul>
   </body>
 </html>

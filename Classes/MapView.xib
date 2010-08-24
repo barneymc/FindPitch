@@ -120,7 +120,7 @@
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="123119231"/>
 					</object>
-					<object class="IBUIButton" id="940928143">
+					<object class="IBUIButton" id="341363157">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{285, 16}, {27, 31}}</string>
@@ -203,6 +203,15 @@
 					</object>
 					<int key="connectionID">22</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">showCurrentLocation</string>
+						<reference key="source" ref="341363157"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">24</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -222,7 +231,7 @@
 							<reference ref="954600115"/>
 							<reference ref="922074908"/>
 							<reference ref="49597673"/>
-							<reference ref="940928143"/>
+							<reference ref="341363157"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -259,7 +268,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">23</int>
-						<reference key="object" ref="940928143"/>
+						<reference key="object" ref="341363157"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -307,7 +316,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">23</int>
+			<int key="maxID">24</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -321,10 +330,12 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>goBack</string>
 							<string>showAddress</string>
+							<string>showCurrentLocation</string>
 							<string>showVC2</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

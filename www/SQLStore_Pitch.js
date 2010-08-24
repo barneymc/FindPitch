@@ -19,9 +19,9 @@ function ifalert(message){
 
 function getCountiesLoad(){
 	try{
-		ifalert('Loading counties...');
-		
-		LoadCounties();
+		alert('Loading counties...');
+		$('#backButton').attr('href','index.html');
+		//LoadCounties();
 	}
 	catch(b){
 		alert('Error in getCountiesLoad() ' + b);
@@ -141,8 +141,8 @@ function getLocationDetailLoad(){
 		
 		//Set up the Link to the back page - County
 		//ifalert('CountyID is ' +countyID);
-		$('#backlink').attr('href','locations.html?countyid=' + countyID);
-		$('#backlink').html("County " + countyName);
+		$('#backButton').attr('href','locations.html?countyid=' + countyID);
+		$('#backButton').html(" " + countyName);
 		//ifalert('CountyName is ' +countyName);
 		
 	}
